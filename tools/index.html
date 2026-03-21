@@ -38,35 +38,41 @@
 
         <div class="tools-grid" id="tools-grid">
             <a href="overtime-calculator.html" class="card tool-card">
+                <span class="card-tag finance">Calculator</span>
                 <div class="card-icon">⏱️</div>
                 <h3>Overtime Calculator</h3>
                 <p>Figure out your extra earnings using standard compliance multipliers. Great for shift-workers
                     worldwide analyzing their final paychecks.</p>
             </a>
             <a href="commission-calculator.html" class="card tool-card">
+                <span class="card-tag finance">Calculator</span>
                 <div class="card-icon">💰</div>
                 <h3>Commission Calculator</h3>
                 <p>Quickly test out scenarios for sales commissions and evaluate profit percentages instantly.</p>
             </a>
             <a href="hourly-to-salary-calculator.html" class="card tool-card">
+                <span class="card-tag finance">Calculator</span>
                 <div class="card-icon">📈</div>
                 <h3>Hourly to Salary Calculator</h3>
                 <p>Plan your personal budget by extrapolating your hourly rate to determine exact annual, monthly, and
                     weekly gross income.</p>
             </a>
             <a href="video-to-audio.html" class="card tool-card">
+                <span class="card-tag media">Extractor</span>
                 <div class="card-icon">🎵</div>
                 <h3>Video to Audio Extractor</h3>
                 <p>Pull raw, lossless .WAV tracks directly off MP4 web downloads strictly via pure client-side isolated
                     device extraction logic.</p>
             </a>
             <a href="heic-to-jpg.html" class="card tool-card">
+                <span class="card-tag media">Converter</span>
                 <div class="card-icon">🖼️</div>
                 <h3>HEIC to JPG Converter</h3>
                 <p>Drag and drop Apple's heavily shielded format, retaining complete picture privacy natively
                     translating strictly on your device.</p>
             </a>
             <a href="image-to-pdf.html" class="card tool-card">
+                <span class="card-tag">Utility</span>
                 <div class="card-icon">📄</div>
                 <h3>Image to PDF</h3>
                 <p>Stitch massive 4k photos into simple, lightweight, perfectly margined PDF documents securely
@@ -100,8 +106,9 @@
                     toolCards.forEach(card => {
                         const title = card.querySelector('h3').textContent.toLowerCase();
                         const desc = card.querySelector('p').textContent.toLowerCase();
+                        const tagText = card.querySelector('.card-tag') ? card.querySelector('.card-tag').textContent.toLowerCase() : '';
 
-                        if (title.includes(query) || desc.includes(query)) {
+                        if (title.includes(query) || desc.includes(query) || tagText.includes(query)) {
                             card.style.display = 'block';
                             visibleCount++;
                         } else {
