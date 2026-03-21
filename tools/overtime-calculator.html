@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overtime Calculator - Check Your Extra Working Hour Pay</title>
+    <meta name="description"
+        content="Use this simple and accurate Overtime Calculator to compute your extra wages globally. Enter your hourly wage, overtime hours, and multiplier to calculate pay.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1 style="font-size: 2.25rem;">Overtime Calculator</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Calculate exactly how much
+                overtime pay you have earned based on your basic hourly wage, overtime hours worked, and standard
+                multiplier.</p>
+        </div>
+
+        <div class="calculator-container">
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="currency">Currency</label>
+                <select id="currency" class="form-control" style="cursor: pointer;">
+                    <option value="USD" selected>USD ($) - Dollar</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="GBP">GBP (£) - Pound</option>
+                    <option value="INR">INR (₹) - Rupee</option>
+                    <option value="CAD">CAD (C$) - Canadian Dollar</option>
+                    <option value="AUD">AUD (A$) - Australian Dollar</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hourly-wage">Your Hourly Wage</label>
+                <input type="number" id="hourly-wage" class="form-control" placeholder="e.g. 50" min="0" step="any">
+            </div>
+
+            <div class="form-group">
+                <label for="overtime-hours">Overtime Hours Worked</label>
+                <input type="number" id="overtime-hours" class="form-control" placeholder="e.g. 12" min="0" step="any">
+            </div>
+
+            <div class="form-group">
+                <label for="multiplier">Overtime Multiplier (Usually 1.5 or 2.0)</label>
+                <input type="number" id="multiplier" class="form-control" value="1.5" min="0" step="any">
+            </div>
+
+            <button id="calc-btn" class="btn">Calculate Overtime Pay</button>
+
+            <div class="result-box">
+                <h4>Total Overtime Pay Earned</h4>
+                <div id="result-display" class="result-value">0</div>
+            </div>
+        </div>
+
+        <article class="content-section" style="margin-top:2rem;">
+            <h2>Understanding Extra Wages with our Overtime Calculator</h2>
+            <p>If you're an employee working longer shifts, grasping how overtime calculation operates is critical to
+                ensuring your final paycheck accurately reflects your labor. Under various regulatory norms worldwide,
+                including the Fair Labor Standards Act (FLSA) in the US and the Working Time Directives in Europe,
+                working beyond standard hours obligates employers to pay extra compensation (overtime wages).</p>
+
+            <p>Our completely free <strong>Overtime Calculator</strong> helps quickly estimate this auxiliary income by
+                relying on user-provided base wages and hour inputs. Designed with simplicity in mind, it executes the
+                computations instantly without passing your data to external servers, protecting your privacy.</p>
+
+            <h3>How the Overtime Calculator Works</h3>
+            <p>Calculating overtime manually isn't extremely difficult, but automating it saves time and prevents
+                calculation mistakes. Our tool works across three major inputs:</p>
+            <ol>
+                <li><strong>Hourly Wage:</strong> This is your base pay extrapolated to an hourly rate. If you are
+                    traditionally salaried, divide your gross basic monthly pay by the total working hours in the month.
+                </li>
+                <li><strong>Overtime Hours:</strong> The exact amount of verified additional hours worked beyond your
+                    standard shift limit within the payment cycle.</li>
+                <li><strong>Multiplier:</strong> While regular time pays 1x, overtime time operates on a multiplier.
+                    Globally, standard overtime is established at "time-and-a-half" (Multiplier of 1.5). Weekend shifts,
+                    holiday working hours, or massive shift overflows often command "double time" (Multiplier of 2.0).
+                </li>
+            </ol>
+
+            <div class="alert-box">
+                <strong>Important Note:</strong> The ordinary wages often include basic wages plus consistent allowances
+                for the sake of calculation in formal sectors, but generally exclude discretionary performance bonuses.
+                Always consult your specific employment contract.
+            </div>
+
+            <h3>The Formula for Overtime Calculation</h3>
+            <p>The mathematics handling this calculation in the background is fundamentally straightforward:</p>
+            <p
+                style="background: var(--bg-color); padding: 1rem; border-radius: var(--radius); text-align: center; font-weight: 600; border: 1px solid var(--border-color);">
+                Total Overtime Pay = Hourly Wage * Overtime Hours * Overtime Multiplier
+            </p>
+
+            <h3>A Real-Life Example Context</h3>
+            <p>Let's map this directly to an everyday scenario encountered frequently by workers.</p>
+            <ul>
+                <li><strong>Scenario:</strong> Sarah works in a logistics warehouse. Her base hourly salary is $25 per
+                    hour. Within this week, a spike in shipping requirements meant she clocked an extra 10 hours of
+                    approved overtime. Her company complies strictly with international standard 1.5x overtime rules.
+                </li>
+                <li><strong>Calculation:</strong> 25 (Hourly Rate) * 10 (Hours) * 1.5 (Multiplier)</li>
+                <li><strong>Resulting Overtime Pay:</strong> $375</li>
+            </ul>
+            <p>In this case, Sarah can expect an additional sum of 375 merged with her upcoming routine payroll
+                dispersal.</p>
+
+            <h3>Does Every Employee Qualify for Overtime?</h3>
+            <p>A common misconception in the corporate ecosystem is that every worker regardless of position qualifies
+                for overtime payment simply by clocking longer hours. In truth, eligibility heavily depends on the
+                nature of employment and prevailing sector regulations.</p>
+            <p>Hourly, blue-collar workers, technicians, and manual labor definitively fall strictly under labor
+                policies mandating extra hour remuneration (classified often as "Non-Exempt" status). Conversely,
+                individuals in purely managerial, supervisory, or executive capacities traditionally do not claim
+                overtime mapped to exact hours, often falling exclusively on gross fixed salary models (classified as
+                "Exempt").</p>
+
+            <h3>Tax Implications on Extra Wages</h3>
+            <p>It's vital to recognize that your finalized overtime earnings are not tax-free bonuses. Much like
+                conventional wages, overtime accumulation effectively becomes a component of your gross salary
+                framework. As such, these amounts are completely subject to standard Income Tax processing as per your
+                applicable personal tax slab under your regional revenue agency.</p>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What is a standard overtime wage rate?</div>
+                    <div class="faq-answer">Generally, standard global practice dictates overtime requires payment at
+                        "time and a half" (a 1.5 multiplier) for anything over 40 hours a week. However, extreme shift
+                        limits or holidays often trigger double time (a 2.0 multiplier).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are salaried professionals eligible for overtime?</div>
+                    <div class="faq-answer">It generally depends. Most salaried professionals operate in supervisory,
+                        administrative, or specialized roles with employment contracts explicitly waiving strict
+                        overtime clauses in favor of fixed lump-sum salaries or compensatory time off policies. These
+                        are referred to as 'Exempt' employees.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I find my hourly wage if I am paid monthly?</div>
+                    <div class="faq-answer">To acquire an approximate hourly rate, divide your gross guaranteed monthly
+                        salary by your standard monthly working hours (usually calculated as approximately 173.3 hours
+                        assuming 40 hours a week).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can employers force me to work overtime?</div>
+                    <div class="faq-answer">Depending on local labor enactments, employers can establish "mandatory
+                        overtime" policies. Refusing to operate within required overtime thresholds can sometimes be
+                        grounds for disciplinary action, provided the employer still properly compensates the extra
+                        labor and obeys overarching maximum operating hour laws.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is the overtime amount subject to standard tax withholding?</div>
+                    <div class="faq-answer">Yes, absolutely. Overtime wages are legally considered supplemental or
+                        standard income depending on your exact reporting structure, and thus attract all regional,
+                        federal, state or provincial income tax levies identically to regular pay.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Explore Other Helpful Tools</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="commission-calculator.html" class="btn"
+                    style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem;">Commission Calculator</a>
+                <a href="hourly-to-salary-calculator.html" class="btn"
+                    style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem; background: var(--text-muted);">Hourly
+                    to Salary Calculator</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/overtime.js"></script>
+</body>
+
+</html>

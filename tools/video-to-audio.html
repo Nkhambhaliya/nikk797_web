@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Audio Converter - Extract WAV files instantly</title>
+    <meta name="description" content="Free browser-based Video to Audio Converter. Extract high-quality WAV audio from MP4, WebM, and other video formats entirely offline.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1 style="font-size: 2.25rem;">Video to Audio Converter</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Extract crystal-clear WAV audio tracks directly from your video files. Functions entirely offline for total privacy.</p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 750px;">
+            <div class="drop-zone" id="drop-zone">
+                <input type="file" id="video-file" accept="video/*" style="display: none;">
+                <div class="drop-zone-icon">📁</div>
+                <div class="drop-zone-text">Drag & Drop your video file here</div>
+                <div class="drop-zone-hint">or click to browse from device (MP4, WEBM, MOV)</div>
+            </div>
+            
+            <div class="file-info" id="file-info" style="display: none; flex-wrap: wrap;">
+                <div class="file-name" id="file-name">filename.mp4</div>
+                <div class="file-size" id="file-size">12.5 MB</div>
+                <select id="audio-format" class="form-control" style="width: 120px; padding: 0.5rem; background: rgba(0,0,0,0.5); font-size: 1rem; margin-left: auto;">
+                    <option value="mp3">MP3</option>
+                    <option value="wav">WAV</option>
+                </select>
+            </div>
+
+            <button id="extract-btn" class="btn" style="margin-top: 2rem; display: none;">🚀 Extract Audio Data</button>
+
+            <div id="loading-msg" style="display:none; text-align: center; margin-top: 3rem;">
+                <div class="spinner"></div>
+                <strong style="color: #f8fafc; font-size: 1.3rem;">Decoding & Compressing Audio...</strong>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Please keep your tab open. Larger files or MP3 compression might take a minute.</p>
+            </div>
+
+            <div class="result-box" id="result-box" style="display: none; margin-top: 3rem;">
+                <h4>Extraction Successful</h4>
+                <div class="result-value" style="margin-top: 1.5rem; font-size: 2rem;">Ready to Download!</div>
+                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">⬇️ Download Audio</a>
+                    <button id="reset-btn" class="btn" style="background: rgba(255,255,255,0.08); box-shadow: none; border: 1px solid rgba(255,255,255,0.1); width: auto; margin-top: 0;">Convert Another</button>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section" style="margin-top:2rem;">
+            <h2>How the Video to Audio Extractor Works</h2>
+            <p>Content creation, podcasting, and general digital media consumption often require separating visual data from audio. Many users want to convert long-form MP4 lectures, recordings, or music videos into strictly audio setups for easier listening on the go while drastically minimizing file storage sizes.</p>
+            
+            <p>Our sophisticated <strong>Video to Audio Converter</strong> handles this extraction smoothly without sending a single byte of your personal video to an external server. By exploiting native modern browser Audio Context decoders, it reads the media format directly on your local device and isolates the audio channels.</p>
+
+            <h3>Why a Local Browser Converter is Preferable</h3>
+            <p>Using cloud-based conversion platforms presents severe privacy bottlenecks and speed limitations. Here is why our architecture is superior:</p>
+            <ol>
+                <li><strong>Absolute Privacy:</strong> If you are converting heavily confidential corporate meetings or personal medical/financial lectures, uploading them to remote servers is a terrifying prospect. Operating locally guarantees the file never leaves your RAM.</li>
+                <li><strong>Lightning Fast Speed:</strong> Because you skip the upload phase—which can take hours for multi-gigabyte files on slower cellular connections—you save an immense amount of time. You rely purely on your device CPU decoding.</li>
+                <li><strong>Multiple Formats:</strong> Export seamlessly into ultra-compressed <code>MP3</code> format for music players, or high-fidelity lossless <code>WAV</code> formats for intensive audio engineer pipelines.</li>
+            </ol>
+
+            <div class="alert-box">
+                <strong>Format Note:</strong> This specific extractor utilizes <code>lamejs</code> to compress high-rate MP3 instances dynamically natively in your browser. MP3 is highly optimized for space, but WAV operates completely uncompressed.
+            </div>
+
+            <h3>Common Scenarios for Audio Extraction</h3>
+            <p>Let's look at why users globally rely on extraction utilities daily:</p>
+            <ul>
+                <li><strong>Podcasters:</strong> Frequently record guest interviews via video tools like Zoom or Google Meet. To push the episode out to Spotify or Apple Podcasts, the raw audio timeline requires complete isolation from the visual framework.</li>
+                <li><strong>Musicians & Samples:</strong> Isolating specific acoustic performances or instrument covers recorded on mobile phone video formats to import natively into DAWs (Digital Audio Workstations) like FL Studio or Ableton.</li>
+                <li><strong>Students:</strong> Converting massive gigabyte-sized multi-hour computer science university lectures into lightweight audio files manageable perfectly during morning gym commutes.</li>
+            </ul>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What formats are supported for the video upload?</div>
+                    <div class="faq-answer">Because the tool relies on your operating browser's internal decoding engine, it universally supports standard web formats including .MP4, .WEBM, .OGG, and often .MOV depending on whether you are utilizing Safari or Chrome.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Why did the browser tab crash during conversion?</div>
+                    <div class="faq-answer">Browser environments enforce hard memory limitations per tab. If you uploaded an enormous 4K video spanning multiple hours, unpacking the lossless audio arrays into RAW memory likely exceeded the browser's allocated RAM quota. We recommend videos under 1 Hour for smooth browser operation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are there any hidden costs?</div>
+                    <div class="faq-answer">None. We don't require server space to host or convert your media, so our overhead expenses are practically zero. Therefore, this tool is indefinitely free for all end users globally.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Explore Other Helpful Tools</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="overtime-calculator.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem;">Overtime Calculator</a>
+                <a href="commission-calculator.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem; background: var(--text-muted);">Commission Calculator</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.min.js"></script>
+    <script src="../js/video-to-audio.js"></script>
+</body>
+</html>

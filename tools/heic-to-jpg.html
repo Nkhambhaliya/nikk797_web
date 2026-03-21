@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEIC to JPG Converter - Free Offline Apple Photo Format Converter</title>
+    <meta name="description" content="Convert your iPhone HEIC photos into standard JPG images instantly and privately without uploading them to any server using our free client-side tool.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .preview-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            margin: 1.5rem auto;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: none;
+            max-height: 400px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1 style="font-size: 2.25rem;">HEIC to JPG Converter</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Instantly decode iPhone HEIC images into standard JPEGs. Your personal photos stay completely safe and completely offline.</p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 750px;">
+            <div class="drop-zone" id="drop-zone">
+                <input type="file" id="heic-file" accept=".heic,.heif,image/heic" style="display: none;">
+                <div class="drop-zone-icon">🖼️</div>
+                <div class="drop-zone-text">Drag & Drop your HEIC photo here</div>
+                <div class="drop-zone-hint">or click to pick from device gallery</div>
+            </div>
+            
+            <div class="file-info" id="file-info" style="display: none; flex-wrap: wrap;">
+                <div class="file-name" id="file-name">photo.heic</div>
+                <div class="file-size" id="file-size">2.5 MB</div>
+                <select id="jpeg-quality" class="form-control" style="width: 140px; padding: 0.5rem; background: rgba(0,0,0,0.5); font-size: 1rem; margin-left: auto;">
+                    <option value="0.9">High Quality</option>
+                    <option value="0.6">Medium Quality</option>
+                    <option value="0.3">Small Size</option>
+                </select>
+            </div>
+
+            <button id="convert-btn" class="btn" style="margin-top: 2rem; display: none;">🚀 Convert to JPG</button>
+
+            <div id="loading-msg" style="display:none; text-align: center; margin-top: 3rem;">
+                <div class="spinner"></div>
+                <strong style="color: #f8fafc; font-size: 1.3rem;">Decoding Apple Format...</strong>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Unpacking High-Efficiency arrays into standard JPG pixels safely.</p>
+            </div>
+
+            <div class="result-box" id="result-box" style="display: none; margin-top: 3rem;">
+                <h4>Conversion Perfected</h4>
+                
+                <img id="image-preview" class="preview-image" alt="Converted JPG Preview">
+                
+                <div class="result-value" style="margin-top: 1rem; font-size: 1.5rem;">Ready to Ensure Compatibility!</div>
+                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">⬇️ Download .JPG</a>
+                    <button id="reset-btn" class="btn" style="background: rgba(255,255,255,0.08); box-shadow: none; border: 1px solid rgba(255,255,255,0.1); width: auto; margin-top: 0;">Convert Another</button>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section" style="margin-top:2rem;">
+            <h2>The Need for a local HEIC to JPG Converter</h2>
+            <p>If you've ever transferred photos from an iPhone to a Windows PC or an older Android device, you've likely encountered HEIC (High-Efficiency Image Container) files. Apple adopted this format to halve the file size of incredibly crisp camera outputs without losing fidelity. However, the vast global ecosystem of software—from standard desktop photo viewers to web upload forms—routinely rejects HEIC files because they lack native compatibility.</p>
+            
+            <p>Our completely free <strong>HEIC to JPG Converter</strong> utilizes complex client-side mapping to bridge this precise gap. It unlocks the image logic confined inside Apple's proprietary wrapper and remaps the pixels directly onto the globally standard JPEG canvas.</p>
+
+            <h3>100% Secure Process: Don't Feed AI Your Private Photos</h3>
+            <p>Because HEIC files originated closely paired to smartphone cameras, these files are almost universally profound personal images—vacations, family gatherings, or sensitive document snaps. A primary problem with "free online converters" historically is they physically upload your unencrypted photos onto remote database servers. These servers frequently scrape your metadata or hold your media for training their background machine learning AI algorithms.</p>
+            
+            <p>By using our isolated web app environment, <strong>your HEIC photo never leaves your physical device.</strong> The entire decoding algorithm happens dynamically in your browser's Random Access Memory (RAM). You ensure zero telemetry mapping, zero tracking, and absolute offline privacy.</p>
+
+            <h3>How to Maintain Extreme Graphical Fidelity</h3>
+            <p>The beauty of our integrated conversion logic is the flexibility it affords you while unpacking complex pictures. Inside the UI, you are granted direct control over the specific pixel density generation:</p>
+            <ul>
+                <li><strong>High Quality:</strong> Maintains a relatively 1:1 graphical interpretation mapping. The final JPEG will comfortably be larger in file size than the HEIC, but absolutely none of the crisp details captured by your phone sensor are lost.</li>
+                <li><strong>Medium/Small Scale:</strong> Excellent for rapidly crunching a cluster of HEIC images you distinctly need strictly for web uploads, tiny WhatsApp transfers, or profile picture inputs where strict pixel-peeping isn't a factor.</li>
+            </ul>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What exactly is a HEIC file?</div>
+                    <div class="faq-answer">HEIC stands for High-Efficiency Image Container. It's essentially an updated variant of the HEIF standard heavily embraced by Apple in iOS 11 to solve the issue of massive phone storage consumption caused by 4k photos. It creates identically crisp images to JPEG equivalents but occupies exactly half the storage space.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use this tool specifically on my Android device?</div>
+                    <div class="faq-answer">Yes, absolutely! Since practically all modern phone browsers (Mobile Chrome, Firefox, Edge) operate with standard client-side sandbox features, you can load our webpage entirely offline and convert HEIC photos successfully on Androids natively.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will transferring to JPG ruin my image quality?</div>
+                    <div class="faq-answer">It overwhelmingly depends strictly on your export parameter. If you execute the export block on "High-Quality," you are overwhelmingly unlikely to visually recognize any graphical degradation whatsoever between the host HEIC file and your new generated JPG.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Explore Other Helpful Tools</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="video-to-audio.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem;">Video to Audio Extractor</a>
+                <a href="overtime-calculator.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem; background: var(--text-muted);">Overtime Calculator</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- heic2any Library required for client-side decoding without backend servers -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <script src="../js/heic-to-jpg.js"></script>
+</body>
+</html>

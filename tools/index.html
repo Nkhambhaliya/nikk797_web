@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tools & Calculators | NIKK 797</title>
+    <meta name="description"
+        content="View our complete index of financial tools and calculators perfectly tailored for the Indian market.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>All Tools</h1>
+        <p>Explore our growing collection of robust, browser-based calculators. All tools process entirely on your
+            device for absolute privacy and speed.</p>
+
+        <div class="search-container" style="margin: 2rem 0 3rem 0; max-width: 600px;">
+            <input type="text" id="tool-search" class="form-control"
+                placeholder="🔍 Search tools... (e.g. 'Audio', 'Calculator')"
+                style="padding: 1.1rem 1.5rem; font-size: 1.15rem; border-radius: 20px; background: rgba(0,0,0,0.3); border: 2px solid rgba(139, 92, 246, 0.3);">
+            <div id="no-results"
+                style="display: none; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1); text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 1.2rem;">
+                No tools found matching your search.</div>
+        </div>
+
+        <div class="tools-grid" id="tools-grid">
+            <a href="overtime-calculator.html" class="card tool-card">
+                <div class="card-icon">⏱️</div>
+                <h3>Overtime Calculator</h3>
+                <p>Figure out your extra earnings using standard compliance multipliers. Great for shift-workers
+                    worldwide analyzing their final paychecks.</p>
+            </a>
+            <a href="commission-calculator.html" class="card tool-card">
+                <div class="card-icon">💰</div>
+                <h3>Commission Calculator</h3>
+                <p>Quickly test out scenarios for sales commissions and evaluate profit percentages instantly.</p>
+            </a>
+            <a href="hourly-to-salary-calculator.html" class="card tool-card">
+                <div class="card-icon">📈</div>
+                <h3>Hourly to Salary Calculator</h3>
+                <p>Plan your personal budget by extrapolating your hourly rate to determine exact annual, monthly, and
+                    weekly gross income.</p>
+            </a>
+            <a href="video-to-audio.html" class="card tool-card">
+                <div class="card-icon">🎵</div>
+                <h3>Video to Audio Extractor</h3>
+                <p>Pull raw, lossless .WAV tracks directly off MP4 web downloads strictly via pure client-side isolated
+                    device extraction logic.</p>
+            </a>
+            <a href="heic-to-jpg.html" class="card tool-card">
+                <div class="card-icon">🖼️</div>
+                <h3>HEIC to JPG Converter</h3>
+                <p>Drag and drop Apple's heavily shielded format, retaining complete picture privacy natively
+                    translating strictly on your device.</p>
+            </a>
+            <a href="image-to-pdf.html" class="card tool-card">
+                <div class="card-icon">📄</div>
+                <h3>Image to PDF</h3>
+                <p>Stitch massive 4k photos into simple, lightweight, perfectly margined PDF documents securely
+                    bypassing slow server uploads.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('tool-search');
+            const toolsGrid = document.getElementById('tools-grid');
+            const toolCards = document.querySelectorAll('.tool-card');
+            const noResults = document.getElementById('no-results');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    let visibleCount = 0;
+
+                    toolCards.forEach(card => {
+                        const title = card.querySelector('h3').textContent.toLowerCase();
+                        const desc = card.querySelector('p').textContent.toLowerCase();
+
+                        if (title.includes(query) || desc.includes(query)) {
+                            card.style.display = 'block';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    if (visibleCount === 0) {
+                        toolsGrid.style.display = 'none';
+                        noResults.style.display = 'block';
+                    } else {
+                        toolsGrid.style.display = 'grid';
+                        noResults.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

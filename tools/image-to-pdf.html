@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter - Free Offline Compiler</title>
+    <meta name="description" content="Combine multiple JPG, PNG, and HEIC images into a single professional PDF document completely offline with advanced compression options.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .option-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f8fafc;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .file-list {
+            margin-top: 1.5rem;
+            max-height: 250px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.75rem;
+            border: 1px solid var(--border-color);
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: transform 0.2s ease;
+        }
+        .file-item:hover {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1 style="font-size: 2.25rem;">Image to PDF Converter</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Combine multiple photos into a single, highly compressed PDF document. Fast, flawless, and completely offline.</p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 800px;">
+            <div class="drop-zone" id="drop-zone">
+                <input type="file" id="image-files" accept="image/png, image/jpeg, image/webp" multiple style="display: none;">
+                <div class="drop-zone-icon">📄</div>
+                <div class="drop-zone-text">Drag & Drop your images here</div>
+                <div class="drop-zone-hint">Select multiple JPG, PNG, or WEBP files at once (Hold Shift)</div>
+            </div>
+            
+            <div class="file-list" id="file-list"></div>
+
+            <div class="options-grid" id="options-panel" style="display: none;">
+                <div class="option-group">
+                    <label>Page Size</label>
+                    <select id="pdf-size" class="form-control" style="padding: 0.85rem;">
+                        <option value="a4">A4 (Standard)</option>
+                        <option value="letter">US Letter</option>
+                        <option value="auto">Auto (Fit Image)</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Orientation</label>
+                    <select id="pdf-orientation" class="form-control" style="padding: 0.85rem;">
+                        <option value="p">Portrait</option>
+                        <option value="l">Landscape</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Margins</label>
+                    <select id="pdf-margin" class="form-control" style="padding: 0.85rem;">
+                        <option value="0">No Margin</option>
+                        <option value="20">Standard Margin</option>
+                        <option value="40">Large Margin</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Compression</label>
+                    <select id="pdf-compression" class="form-control" style="padding: 0.85rem;">
+                        <option value="0.9">High Quality</option>
+                        <option value="0.6">Medium (Web)</option>
+                        <option value="0.3">Aggressive (Tiny)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="convert-btn" class="btn" style="margin-top: 2rem; display: none;">🚀 Generate Combined PDF</button>
+
+            <div id="loading-msg" style="display:none; text-align: center; margin-top: 3rem;">
+                <div class="spinner"></div>
+                <strong style="color: #f8fafc; font-size: 1.3rem;">Compiling PDF Document...</strong>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Compressing and stitching images together natively on your device.</p>
+            </div>
+
+            <div class="result-box" id="result-box" style="display: none; margin-top: 3rem;">
+                <h4>Document Compiled</h4>
+                <div class="result-value" style="margin-top: 1.5rem; font-size: 2rem;">Ready to Download!</div>
+                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">⬇️ Download .PDF</a>
+                    <button id="reset-btn" class="btn" style="background: rgba(255,255,255,0.08); box-shadow: none; border: 1px solid rgba(255,255,255,0.1); width: auto; margin-top: 0;">Create Another</button>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section" style="margin-top:2rem;">
+            <h2>The Ultimate Image to PDF Utility</h2>
+            <p>From scanning multi-page receipts explicitly for corporate expense reporting to archiving family photos securely, bundling disparate graphical files directly into a singular, highly transportable PDF document is a fundamental organizational necessity.</p>
+            
+            <p>Our completely free <strong>Image to PDF Converter</strong> handles this complicated consolidation seamlessly. Even better, we actively provide advanced controls directly inside the application, allowing you complete authority over massive file size compression, specific standard paper dimensions, and automated margin padding limits.</p>
+
+            <h3>How "Local Compilation" Protects You</h3>
+            <p>When you dump a dozen financial documents or sensitive photos heavily into massive cloud-based "Free Converters," you lose direct control of your absolute privacy. They mandate your files sit exposed on their databases prior to providing your consolidated PDF block.</p>
+            
+            <p>Conversely, our tool dynamically loads standard JS encoders natively directly within your exact Chrome, Firefox, or Safari browser. Every single photo you queue correctly processes directly against your own RAM stack offline, guaranteeing extreme privacy validation parameters.</p>
+
+            <h3>Dominating File Size Caps With Target Compression</h3>
+            <p>A frequent problem faced heavily whenever users upload uncompressed raw JPEGs natively from their 4K smartphone cameras into a PDF format is drastically exceeding web-mail attachment caps (typically locked sternly at 25MB).</p>
+            <ul>
+                <li><strong>Aggressive (Tiny):</strong> Ideal for pushing 20+ receipt snapshots strictly over corporate email servers. The images undergo rigorous but readable lossy mapping.</li>
+                <li><strong>Medium (Web):</strong> The excellent standard balancing extremely clear viewing on monitors alongside swift sharing portability.</li>
+                <li><strong>High Quality:</strong> Preserves exactly high-fidelity printing logic explicitly for physical archival generation operations.</li>
+            </ul>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Can I upload multiple files simultaneously?</div>
+                    <div class="faq-answer">Absolutely. Whether you natively execute a bulk Drag-and-Drop or hold either SHIFT/CTRL down during standard system file selection, the queue natively generates multiple stacked items linearly without issue.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What does the "Auto (Fit Image)" setting specifically accomplish?</div>
+                    <div class="faq-answer">Instead of violently forcing a massive horizontal landscape image to heavily shrink perfectly into standard vertical 'A4' boundaries, Auto exactly scales the PDF canvas document dimensions securely to trace the specific borders of the injected image individually per page!</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is there a hard cap on images per PDF?</div>
+                    <div class="faq-answer">Only what your local computer's processor can physically sustain. We definitively recommend queuing roughly 30 dense images at a time natively to heavily prevent arbitrary tab crashing on older low-memory mobile devices.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Explore Other Helpful Tools</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="heic-to-jpg.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem;">HEIC to JPG Converter</a>
+                <a href="video-to-audio.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem; background: var(--text-muted);">Video to Audio Extractor</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../js/image-to-pdf.js"></script>
+</body>
+</html>

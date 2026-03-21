@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourly to Salary Calculator | Convert Wages to Annual Income</title>
+    <meta name="description" content="Free Hourly to Salary Calculator. Accurately convert your hourly wage into anticipated weekly, monthly, and yearly salary totals to simplify career planning.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1 style="font-size: 2.25rem;">Hourly to Salary Calculator</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Quickly translate your per-hour wage into accurate equivalents for weekly, monthly, and annual salaries to plan your finances effectively.</p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 800px;">
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="currency">Currency</label>
+                <select id="currency" class="form-control" style="cursor: pointer;">
+                    <option value="USD" selected>USD ($) - Dollar</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="GBP">GBP (£) - Pound</option>
+                    <option value="INR">INR (₹) - Rupee</option>
+                    <option value="CAD">CAD (C$) - Canadian Dollar</option>
+                    <option value="AUD">AUD (A$) - Australian Dollar</option>
+                </select>
+            </div>
+
+            <div class="result-grid" style="margin-top: 0; margin-bottom: 2rem;">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="hourly-rate">Your Hourly Wage</label>
+                    <input type="number" id="hourly-rate" class="form-control" placeholder="e.g. 50" min="0" step="any">
+                </div>
+                <div class="form-group" style="margin-bottom: 0; grid-column: span 2;">
+                    <label for="hours-per-week">Hours Worked Per Week</label>
+                    <input type="number" id="hours-per-week" class="form-control" value="40" min="0" max="168" step="any">
+                </div>
+            </div>
+
+            <button id="calc-btn" class="btn">Calculate Salary Totals</button>
+
+            <div class="result-grid">
+                <div class="result-card">
+                    <h4>Weekly Salary</h4>
+                    <div id="result-weekly" class="sub-value">-</div>
+                </div>
+                <div class="result-card">
+                    <h4>Monthly Salary</h4>
+                    <div id="result-monthly" class="sub-value">-</div>
+                </div>
+                <div class="result-card featured">
+                    <h4>Annual Salary</h4>
+                    <div id="result-yearly" class="sub-value">-</div>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section" style="margin-top:2rem;">
+            <h2>Master Finances with the Hourly to Salary Calculator</h2>
+            <p>Moving between different employment structures—such as deciding to bridge the gap from a part-time hourly contractor to a full-time salaried employee—can frequently present mathematical challenges. Without executing the proper arithmetic, candidates might accept opportunities that inadvertently decrease their total macroscopic earnings over the span of a fiscal year.</p>
+            
+            <p>Our sophisticated yet broadly accessible <strong>Hourly to Salary Calculator</strong> functions to eliminate this ambiguity. It effortlessly bridges the conceptual gap between short-term hourly rates and long-term annualized stability, breaking down gross pay into highly readable weekly, monthly, and yearly metrics.</p>
+
+            <h3>When and Why To Utilize This Calculator</h3>
+            <p>The applications for extrapolating wages operate across multiple critical career pivot points:</p>
+            <ol>
+                <li><strong>Evaluating New Job Offers:</strong> If transitioning from a traditional salary to an hourly consulting position (or inversely), you absolutely need a baseline annual denominator to perform an "apples-to-apples" financial comparison.</li>
+                <li><strong>Personal Budget Structuring:</strong> Establishing a reliable annualized metric derived strictly from unpredictable hourly increments heavily assists in long-term financial modeling, loan applications, and investment contributions.</li>
+                <li><strong>Income Goal Setting:</strong> Freelancers establish internal targets effectively backward-engineering their desired annual gross capability into required hourly retainer pricing to stay strictly profitable.</li>
+            </ol>
+
+            <div class="alert-box">
+                <strong>Budgeting Hint:</strong> This tool computes entirely unadjusted <em>Gross Income</em> (your income precisely prior to any taxes, standard deductions, or mandatory retirement contributions). Depending on localized governance, actual net take-home pay can routinely be 20% to 35% substantially lower.
+            </div>
+
+            <h3>Decoding The Underlying Formulas</h3>
+            <p>Our tool runs several successive operations rapidly to provide a synchronized read-out. For those running the math independently on paper, here is the operational logic scaling up the intervals:</p>
+            <ul>
+                <li><strong>Weekly Projection:</strong> Hourly Rate * Hours Processed Per Week</li>
+                <li><strong>Annualized Projection:</strong> Weekly Projection * 52 (Because there are definitively 52 weeks structured in a standard calendar year).</li>
+                <li><strong>Monthly Projection:</strong> Annualized Projection / 12 (Crucially preferred over just multiplying weekly by 4, because practically all months contain slightly more than precisely 28 days).</li>
+            </ul>
+
+            <h3>Walking Through a Practical Scenario</h3>
+            <p>Let's map this specific process onto commonplace parameters to verify exactly how transformative minor data adjustments look.</p>
+            <ul>
+                <li><strong>Scenario Data:</strong> John functions as an independent graphical designer. He charges clients a premium rate of 80 per hour. On average, to preserve extreme work-life balance, he actively limits his operational output to merely 25 billable hours each week.</li>
+                <li><strong>Weekly Math:</strong> 80 * 25 = 2,000 weekly gross.</li>
+                <li><strong>Annual Math:</strong> 2,000 * 52 = 104,000 yearly gross.</li>
+                <li><strong>Monthly Math:</strong> 104,000 / 12 = 8,666.67 monthly gross.</li>
+            </ul>
+            <p>Immediately, John's 80 rate—when contextualized against his part-time operational load—translates to a highly respectable six-figure annual return, validating his current pricing mechanisms.</p>
+
+            <h3>The Hourly vs. Salaried Dilemma: Key Differences</h3>
+            <p>Beyond mathematical translations, profound structural contrasts separate these models. Employees compensated exclusively via hourly metrics ordinarily benefit from legal oversight strictly ensuring 'time-and-a-half' overtime privileges whenever shift volumes exceed standardized caps.</p>
+            <p>Conversely, traditional salaried employment typically establishes a fixed-cost contract. While it guarantees an immovable cash floor irrespective of minor absences or slow economic cycles, salaried personnel frequently operate extended surplus hours over weekends or evenings intrinsically "unpaid," as aggregate compensation is universally fixed.</p>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">How does unpaid time off affect this calculation?</div>
+                    <div class="faq-answer">These basic formulas operate under the strict assumption of working actively for a full 52 uninterrupted weeks. If you routinely take 3 weeks of fully unpaid vacation annually restrictively, you must multiply your calculated weekly total strictly by 49 instead of 52 for an accurate annual projection.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is it actually more lucrative to be hourly or salaried?</div>
+                    <div class="faq-answer">Neither model is universally 'better'. If you operate intimately within a high-volume enterprise explicitly enforcing massive working hours, an hourly setup with heavy overtime multipliers can dramatically overpower a flat salary. Conversely, a salary brings unparalleled fiscal predictability and usually stronger comprehensive corporate benefit packages.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is considered a "standard" working week?</div>
+                    <div class="faq-answer">Globally, corporate frameworks heavily default toward 40 authorized hours—originating historically from five consecutive 8-hour shift cycles. However, several modern regional jurisdictions aggressively advocate for 35 or even 32-hour baselines to promote improved wellness.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Does this calculation inherently include taxes?</div>
+                    <div class="faq-answer">No. All computational models inside this application dictate 'gross' revenue figures. To locate your definitive bank-lodged 'net' check, you are required to subsequently subtract regional income taxes, insurance premium deductions, and applicable federal or state levies.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use this effectively for freelance estimations?</div>
+                    <div class="faq-answer">Absolutely. Freelancers routinely exploit this logic in reverse: deciding their ideal desired annual income threshold, subsequently dividing it strictly by their feasible yearly billable hours, explicitly arriving at the exact lowest hourly threshold rate they logically should quote their clientele.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Explore Other Helpful Tools</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="overtime-calculator.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem;">Overtime Calculator</a>
+                <a href="commission-calculator.html" class="btn" style="width: auto; padding: 0.5rem 1rem; font-size: 0.95rem; background: var(--text-muted);">Commission Calculator</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/hourly.js"></script>
+</body>
+</html>
