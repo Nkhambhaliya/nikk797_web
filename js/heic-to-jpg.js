@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 loadingMsg.style.display = 'none';
                 resultBox.style.display = 'block';
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } catch (err) {
                 console.error(err);
                 alert('An error occurred. The HEIC file may be corrupted or too massive for your device core limits.');

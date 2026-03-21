@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currencyCode = currencySelect ? currencySelect.value : 'USD';
             const earned = sales * (comm / 100);
             resultBox.textContent = formatCurrencyCode(earned, currencyCode);
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
 });

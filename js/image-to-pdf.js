@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 loadingMsg.style.display = 'none';
                 resultBox.style.display = 'block';
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } catch (err) {
                 console.error(err);
                 alert('A fatal memory fault occurred generating the PDF. Reduce the maximum file batch amount or check your specific file encoding parameters.');

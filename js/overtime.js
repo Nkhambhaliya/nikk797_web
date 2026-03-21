@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currencyCode = currencySelect ? currencySelect.value : 'USD';
             const pay = wage * hours * multiplier;
             resultBox.textContent = formatCurrencyCode(pay, currencyCode);
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
 });

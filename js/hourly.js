@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultWeekly.textContent = formatCurrencyCode(weekly, currencyCode);
             resultMonthly.textContent = formatCurrencyCode(monthly, currencyCode);
             resultYearly.textContent = formatCurrencyCode(yearly, currencyCode);
+            document.getElementById('result-yearly').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
 });

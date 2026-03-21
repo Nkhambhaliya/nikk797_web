@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 loadingMsg.style.display = 'none';
                 resultBox.style.display = 'block';
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } catch (err) {
                 console.error(err);
                 alert('An error occurred. The file might not be a valid format, or it may be too massive for the browser tab to render locally.');
