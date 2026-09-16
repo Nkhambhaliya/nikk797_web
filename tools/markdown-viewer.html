@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Markdown Viewer Online | Render & Edit .MD Files (100% Private)</title>
+    <meta name="description"
+        content="Open, render, and edit Markdown (.md) files online for free. Convert MD to HTML, preview GitHub Markdown, and export files 100% client-side with zero server uploads.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <!-- OpenGraph Metadata for SEO & Social Sharing -->
+    <meta property="og:title" content="Free Markdown Viewer Online | Render & Edit .MD Files">
+    <meta property="og:description"
+        content="Preview and edit Markdown (.md) files live online. Instant MD to HTML conversion, GitHub Flavored Markdown, and 100% offline client-side security.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nikk797.com/tools/markdown-viewer.html">
+
+    <!-- Schema.org JSON-LD Structured Data for Google Ranking -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "NIKK 797 Markdown Viewer",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "description": "View, edit, and convert Markdown (.md) files to HTML live in your browser completely offline.",
+          "offers": { "@type": "Offer", "price": "0" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does this Markdown Viewer ensure complete data privacy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All Markdown parsing and HTML rendering execute 100% locally inside your browser using JavaScript. Your documents and notes are never sent to any server."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this tool support GitHub Flavored Markdown (GFM)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! It supports full GitHub Flavored Markdown including code blocks, task list checkboxes, tables, auto-linked URLs, and blockquotes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I export the rendered Markdown to an HTML file?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can copy the rendered HTML directly to your clipboard or download a standalone .html file with styled CSS."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there a file size limit for viewing .md files?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There are no server limits. Because parsing happens on your device, you can open and edit large documentation files seamlessly."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <style>
+        .toolbar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s var(--spring-easing);
+        }
+
+        .tool-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--border-hover);
+        }
+
+        .tool-btn-primary {
+            background: var(--accent-primary);
+            color: #fff;
+            border-color: var(--accent-primary);
+        }
+
+        .tool-btn-primary:hover {
+            background: var(--accent-primary-hover);
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            min-height: 480px;
+        }
+
+        @media (max-width: 840px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pane {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .pane-header {
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .editor-textarea {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            padding: 1.25rem;
+            background: transparent;
+            border: none;
+            color: #f5f5f7;
+            font-family: "SF Mono", "Consolas", "Courier New", monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            resize: vertical;
+        }
+
+        .editor-textarea:focus {
+            outline: none;
+        }
+
+        /* Markdown Rendered Content Styling */
+        .preview-content {
+            padding: 1.25rem;
+            color: var(--text-main);
+            overflow-y: auto;
+            max-height: 520px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .preview-content h1, .preview-content h2, .preview-content h3, .preview-content h4 {
+            color: #ffffff;
+            margin-top: 1.25rem;
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .preview-content h1 { font-size: 1.8rem; }
+        .preview-content h2 { font-size: 1.4rem; }
+        .preview-content h3 { font-size: 1.15rem; }
+
+        .preview-content p {
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        .preview-content code {
+            background: rgba(255, 255, 255, 0.08);
+            color: #38bdf8;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .preview-content pre {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .preview-content pre code {
+            background: transparent;
+            padding: 0;
+            color: #e2e8f0;
+        }
+
+        .preview-content blockquote {
+            border-left: 4px solid var(--accent-blue);
+            margin: 1rem 0;
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            background: rgba(41, 151, 255, 0.05);
+            padding: 0.75rem 1rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .preview-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+        }
+
+        .preview-content th, .preview-content td {
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 0.85rem;
+            text-align: left;
+        }
+
+        .preview-content th {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+        }
+
+        .preview-content ul, .preview-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        .preview-content hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1>Free Markdown Viewer & Editor</h1>
+            <p style="font-size: 1.15rem; max-width: 620px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Open, edit, and render Markdown (.md) files with live HTML preview. 100% private and client-side.
+            </p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 1060px;">
+            <div class="drop-zone" id="drop-zone" style="padding: 2rem 1rem; margin-bottom: 1.25rem;">
+                <input type="file" id="md-file" accept=".md,.markdown,.txt" style="display: none;">
+                <div class="drop-zone-icon" style="font-size: 2.2rem; margin-bottom: 0.5rem;">📝</div>
+                <div class="drop-zone-text" style="font-size: 1.05rem;">Drag & Drop your .md file here</div>
+                <div class="drop-zone-hint" style="font-size: 0.85rem;">or click to browse Markdown documents</div>
+            </div>
+
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <button class="tool-btn" id="sample-btn">Load Sample</button>
+                    <button class="tool-btn" id="clear-btn">Clear</button>
+                    <button class="tool-btn" id="toggle-split-btn">Preview Only Mode</button>
+                </div>
+                <div class="toolbar-group">
+                    <button class="tool-btn" id="copy-md-btn">Copy MD</button>
+                    <button class="tool-btn" id="copy-html-btn">Copy HTML</button>
+                    <button class="tool-btn tool-btn-primary" id="download-md-btn">Save .md</button>
+                    <button class="tool-btn tool-btn-primary" id="download-html-btn">Export .html</button>
+                </div>
+            </div>
+
+            <div class="split-grid">
+                <div class="pane" id="editor-pane">
+                    <div class="pane-header">Markdown Input Editor</div>
+                    <textarea class="editor-textarea" id="md-editor" placeholder="Type or paste Markdown text here..."></textarea>
+                </div>
+                <div class="pane" id="preview-pane">
+                    <div class="pane-header">Live HTML Preview</div>
+                    <div class="preview-content" id="md-preview"></div>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section">
+            <h2>What is a Markdown Viewer?</h2>
+            <p>Our <strong>Markdown Viewer</strong> is a fast, interactive tool for reading, writing, and rendering Markdown (\`.md\`) files. Markdown is the universal plain-text formatting language used across GitHub, developer documentation, static site generators, and note-taking applications. This tool renders your raw markup into beautiful, styled HTML in real time.</p>
+
+            <h2>How to Use the Markdown Viewer</h2>
+            <ol>
+                <li><strong>Open or Type Markdown:</strong> Drag and drop a \`.md\` file onto the drop zone, or type directly into the left editor pane.</li>
+                <li><strong>Live HTML Sync:</strong> As you edit, the right preview pane updates instantly with rendered headers, tables, code blocks, and list items.</li>
+                <li><strong>Export & Share:</strong> Copy raw Markdown or formatted HTML directly to your clipboard, or click to download exported \`.md\` and \`.html\` files.</li>
+            </ol>
+
+            <h2>Why Client-Side Privacy Matters for Documents</h2>
+            <p>Developer notes, project READMEs, and technical documentation often contain proprietary internal system architecture details. Unlike online converters that upload your text files to external servers, our tool parses all Markdown locally on your CPU via client-side JavaScript. Your notes never leave your web browser.</p>
+
+            <h2>Supported GitHub Flavored Markdown (GFM) Features</h2>
+            <ul>
+                <li><strong>Headings & Text Formatting:</strong> H1-H6 headers, bold, italics, strikethrough, and inline highlights.</li>
+                <li><strong>Tables & Task Lists:</strong> Custom data tables, bullet points, numbered lists, and interactive checkboxes.</li>
+                <li><strong>Code Blocks & Quotes:</strong> Pre-formatted code syntax blocks and styled blockquote callouts.</li>
+            </ul>
+
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions (FAQ)</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">How does this Markdown Viewer ensure complete data privacy?</div>
+                    <div class="faq-answer">All Markdown parsing and HTML rendering execute 100% locally inside your browser using JavaScript. Your documents and notes are never sent to any server.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Does this tool support GitHub Flavored Markdown (GFM)?</div>
+                    <div class="faq-answer">Yes! It supports full GitHub Flavored Markdown including code blocks, task list checkboxes, tables, auto-linked URLs, and blockquotes.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I export the rendered Markdown to an HTML file?</div>
+                    <div class="faq-answer">Yes. You can copy the rendered HTML directly to your clipboard or download a standalone .html file with styled CSS.</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="pdf-to-word.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">PDF to Word</a>
+                    <a href="image-to-pdf.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image to PDF</a>
+                    <a href="pdf-merger.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">PDF Merger</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="../about.html">About</a>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Marked.js for Client-Side Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="../js/markdown-viewer.js"></script>
+</body>
+
+</html>
