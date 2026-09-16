@@ -204,13 +204,16 @@ ${previewArea ? previewArea.innerHTML : ''}
 
     if (toggleSplitBtn) {
         let isPreviewOnly = false;
+        const splitGrid = document.querySelector('.split-grid');
         toggleSplitBtn.addEventListener('click', () => {
             isPreviewOnly = !isPreviewOnly;
             if (isPreviewOnly) {
                 editorPane.style.display = 'none';
+                if (splitGrid) splitGrid.classList.add('preview-full-mode');
                 toggleSplitBtn.textContent = 'Split Editor Mode';
             } else {
-                editorPane.style.display = 'block';
+                editorPane.style.display = 'flex';
+                if (splitGrid) splitGrid.classList.remove('preview-full-mode');
                 toggleSplitBtn.textContent = 'Preview Only Mode';
             }
         });

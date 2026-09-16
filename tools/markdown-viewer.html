@@ -122,7 +122,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
-            min-height: 480px;
+            min-height: 520px;
+            transition: all 0.3s var(--spring-easing);
+        }
+
+        .split-grid.preview-full-mode {
+            grid-template-columns: 1fr;
         }
 
         @media (max-width: 840px) {
@@ -138,6 +143,7 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             overflow: hidden;
+            transition: all 0.3s var(--spring-easing);
         }
 
         .pane-header {
@@ -171,12 +177,21 @@
 
         /* Markdown Rendered Content Styling */
         .preview-content {
-            padding: 1.25rem;
+            padding: 1.5rem;
             color: var(--text-main);
             overflow-y: auto;
-            max-height: 520px;
-            font-size: 1rem;
+            max-height: 600px;
+            min-height: 440px;
+            font-size: 1.02rem;
             line-height: 1.7;
+            transition: all 0.3s var(--spring-easing);
+        }
+
+        .preview-full-mode .preview-content {
+            max-height: 850px;
+            min-height: 600px;
+            padding: 2.25rem 2.5rem;
+            font-size: 1.08rem;
         }
 
         .preview-content h1, .preview-content h2, .preview-content h3, .preview-content h4 {
