@@ -23,10 +23,7 @@
         {
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "What formats are supported for the video upload?", "acceptedAnswer": { "@type": "Answer", "text": "Our tool universally supports standard web formats including MP4, WEBM, OGG, and often MOV depending on whether you are utilizing Chrome, Safari, or Edge." } },
-            { "@type": "Question", "name": "Why did the browser tab crash during conversion?", "acceptedAnswer": { "@type": "Answer", "text": "Browser environments enforce hard memory limitations. If you upload an enormous 4K video spanning multiple hours, unpacking the audio arrays into RAM might exceed your browser memory limit. Try processing shorter videos." } },
-            { "@type": "Question", "name": "Are there any hidden costs or data limits?", "acceptedAnswer": { "@type": "Answer", "text": "None! We don't require server space to host or convert your media, so our application operates completely client-side for free with absolutely zero hidden limits." } },
-            { "@type": "Question", "name": "Does my video file ever get uploaded to the cloud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything operates 100% locally on your personal device through advanced Web Audio APIs natively. Absolutely nothing is ever uploaded securely or communicated remotely." } }
+            { "@type": "Question", "name": "Does my video file ever get uploaded to the cloud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything operates 100% locally on your personal device through advanced Web Audio APIs." } }
           ]
         }
       ]
@@ -46,107 +43,73 @@
 
     <main>
         <div class="content-section" style="margin-bottom: 0; text-align: center;">
-            <h1 style="font-size: 2.25rem;">Convert Video to Audio Online Free</h1>
-            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Extract crystal-clear WAV audio tracks directly from your video files. Functions entirely offline for total privacy.</p>
+            <h1>Video to Audio Extractor</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Extract crystal-clear WAV or MP3 audio tracks directly from your video files offline.
+            </p>
         </div>
 
-        <div class="calculator-container" style="max-width: 750px;">
+        <div class="calculator-container" style="max-width: 720px;">
             <div class="drop-zone" id="drop-zone">
                 <input type="file" id="video-file" accept="video/*" style="display: none;">
-                <div class="drop-zone-icon">📁</div>
+                <div class="drop-zone-icon">🎵</div>
                 <div class="drop-zone-text">Drag & Drop your video file here</div>
-                <div class="drop-zone-hint">or click to browse from device (MP4, WEBM, MOV)</div>
+                <div class="drop-zone-hint">or click to browse device (MP4, WEBM, MOV)</div>
             </div>
             
             <div class="file-info" id="file-info" style="display: none; flex-wrap: wrap;">
                 <div class="file-name" id="file-name">filename.mp4</div>
                 <div class="file-size" id="file-size">12.5 MB</div>
-                <select id="audio-format" class="form-control" style="width: 120px; padding: 0.5rem; background: rgba(0,0,0,0.5); font-size: 1rem; margin-left: auto;">
+                <select id="audio-format" class="form-control" style="width: 110px; padding: 0.4rem 0.6rem; margin-left: auto;">
                     <option value="mp3">MP3</option>
                     <option value="wav">WAV</option>
                 </select>
             </div>
 
-            <button id="extract-btn" class="btn" style="margin-top: 2rem; display: none;">🚀 Extract Audio Data</button>
+            <button id="extract-btn" class="btn" style="margin-top: 1.5rem; display: none;">Extract Audio Data</button>
 
-            <div id="loading-msg" style="display:none; text-align: center; margin-top: 3rem;">
+            <div id="loading-msg" style="display:none; text-align: center; margin-top: 2rem;">
                 <div class="spinner"></div>
-                <strong style="color: #f8fafc; font-size: 1.3rem;">Decoding & Compressing Audio...</strong>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Please keep your tab open. Larger files or MP3 compression might take a minute.</p>
+                <strong style="color: var(--text-main); font-size: 1.15rem;">Decoding & Compressing Audio...</strong>
+                <p style="color: var(--text-muted); margin-top: 0.35rem; font-size: 0.95rem;">Processing streams offline in browser memory.</p>
             </div>
 
-            <div class="result-box" id="result-box" style="display: none; margin-top: 3rem;">
+            <div class="result-box" id="result-box" style="display: none;">
                 <h4>Extraction Successful</h4>
-                <div class="result-value" style="margin-top: 1.5rem; font-size: 2rem;">Ready to Download!</div>
-                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">⬇️ Download Audio</a>
-                    <button id="reset-btn" class="btn" style="background: rgba(255,255,255,0.08); box-shadow: none; border: 1px solid rgba(255,255,255,0.1); width: auto; margin-top: 0;">Convert Another</button>
+                <div class="result-value" style="margin-top: 0.75rem; font-size: 1.5rem;">Ready to Download</div>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">Download Audio</a>
+                    <button id="reset-btn" class="btn btn-secondary" style="width: auto; margin-top: 0;">Convert Another</button>
                 </div>
             </div>
         </div>
 
-        <article class="content-section" style="margin-top:2rem;">
+        <article class="content-section">
             <h2>What is a Video to Audio Converter?</h2>
-            <p>Our <strong>Video to Audio Converter</strong> is a free tool that allows you to extract the sound track from any video file. It takes common video formats like MP4, WEBM, and MOV, and turns them into high-quality audio files such as MP3 or WAV. This makes it incredibly easy to save podcasts, music covers, and lecture recordings as small audio files you can listen to anywhere.</p>
+            <p>Our <strong>Video to Audio Converter</strong> extracts audio tracks from MP4, WEBM, and MOV video files directly into MP3 or WAV audio tracks.</p>
 
             <h2>How to use Video to Audio Converter</h2>
-            <p>We designed this converter to be extremely simple and entirely browser-based. You don't need any technical skills or software installation.</p>
             <ol>
-                <li><strong>Upload Your Video:</strong> Drag and drop your video file into the designated box, or click the box to select a file from your device.</li>
-                <li><strong>Select the Audio Format:</strong> Use the dropdown menu to choose your preferred output format. MP3 is great for everyday listening and saving space, while WAV provides uncompressed, studio-quality sound.</li>
-                <li><strong>Start Extraction:</strong> Click the "Extract Audio" button. The tool will process the video locally on your device in a few moments.</li>
-                <li><strong>Download Your File:</strong> Once the process is finished, simply click the download link to save your new audio track directly to your computer or phone.</li>
+                <li><strong>Upload Your Video:</strong> Drag and drop your video file into the drop zone.</li>
+                <li><strong>Select Audio Format:</strong> Choose MP3 or WAV format.</li>
+                <li><strong>Extract Audio:</strong> Click "Extract Audio Data" to process the audio stream offline.</li>
             </ol>
 
-            <h2>Why use this tool?</h2>
-            <p>Extracting audio from a video shouldn't require downloading heavy software or trusting sketchy websites with your personal data. This tool solves that problem. It is perfect for turning long YouTube interviews into podcasts, ripping original music from home recordings, or saving storage space. Because everything happens securely within your browser, you never have to worry about the file size limits or privacy risks associated with uploading files to a remote server.</p>
-            <p>Additionally, it runs extremely fast regardless of your internet connection speed. Because the processing uses your device's own memory, you can convert hours of footage without waiting for massive uploads or downloads to finish.</p>
-
-            <h2>Features</h2>
-            <ul>
-                <li><strong>Zero Server Uploads:</strong> Your sensitive and personal videos never leave your device. All extraction logic happens right inside your browser window.</li>
-                <li><strong>Lightning Fast Speed:</strong> By bypassing the need to upload gigabytes of video data to the cloud, you get your audio track generated instantly.</li>
-                <li><strong>Wide Compatibility:</strong> Works natively on Windows, macOS, Android, and iOS using any modern web browser like Chrome or Safari.</li>
-                <li><strong>High-Quality Formats:</strong> Export your files into compressed MP3s for easy sharing, or choose uncompressed WAV formats for professional editing and mixing.</li>
-            </ul>
-
-            <h2>Use Cases</h2>
-            <ul>
-                <li><strong>Students & Researchers:</strong> Have a recording of a long lecture or seminar? Convert the massive video file into a small MP3 so you can listen to it on your phone while commuting, saving incredible amounts of mobile storage space.</li>
-                <li><strong>Musicians & Content Creators:</strong> Easily pull raw audio tracks, sound effects, or dialog directly from your raw video clips so you can master them separately in a Digital Audio Workstation (DAW) like Logic Pro or FL Studio.</li>
-                <li><strong>Journalists & Podcasters:</strong> Quickly rip the audio from a recorded Zoom interview or webcam session to upload as a podcast episode without dealing with complex video editing software.</li>
-            </ul>
-
-            <div class="faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: #fff;">Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
                 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">What formats are supported for the video upload?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Our tool universally supports standard web formats including MP4, WEBM, OGG, and often MOV depending on whether you are utilizing Chrome, Safari, or Edge natively.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Why did the browser tab crash during conversion?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Browsers have built-in memory limits. If you upload an enormous 4K video that is several hours long, extracting the audio might take up too much RAM and crash your tab. If this happens, try cutting your video into smaller parts before converting.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Are there any hidden costs or data limits?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">None! Because your browser is doing all the work, we don't have to pay for expensive server processing. Therefore, the tool is completely free with no restrictions.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Does my video file ever get uploaded to the cloud?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">No. The audio extraction process happens completely offline inside your browser. Your videos are never uploaded to our servers.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Does my video file ever get uploaded to the cloud?</div>
+                    <div class="faq-answer">No. All Web Audio API decoding runs strictly on your device.</div>
                 </div>
             </div>
 
-            <div class="related-tools-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #fff;">Related Tools</h2>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="heic-to-jpg.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">HEIC to JPG Converter</a>
-                    <a href="image-compressor.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Image Compressor</a>
-                    <a href="pdf-merger.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">PDF Merger</a>
+                    <a href="heic-to-jpg.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">HEIC to JPG Converter</a>
+                    <a href="image-compressor.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image Compressor</a>
+                    <a href="pdf-merger.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">PDF Merger</a>
                 </div>
             </div>
         </article>

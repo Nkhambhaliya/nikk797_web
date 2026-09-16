@@ -23,10 +23,8 @@
         {
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "Can I upload multiple files simultaneously?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Whether you natively execute a bulk Drag-and-Drop or hold SHIFT/CTRL during standard system file selection, the queue natively generates multiple stacked items linearly without issue." } },
-            { "@type": "Question", "name": "What does the Auto (Fit Image) setting specifically accomplish?", "acceptedAnswer": { "@type": "Answer", "text": "Instead of forcing a massive horizontal landscape image to shrink into standard vertical A4 boundaries, Auto effectively scales the PDF document dimensions to match the image individually per page." } },
-            { "@type": "Question", "name": "Is there a hard cap on images per PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Only what your local computer's processor can physically sustain. We recommend queuing roughly 30 dense images at a time natively to heavily prevent memory crashing on low-memory mobile devices." } },
-            { "@type": "Question", "name": "Are my images uploaded to any server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The entire conversion process happens locally in your browser so your images are inherently fully private." } }
+            { "@type": "Question", "name": "Can I upload multiple files simultaneously?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Select multiple files or drag a folder onto the dropzone." } },
+            { "@type": "Question", "name": "Are my images uploaded to any server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The entire conversion process occurs locally in your browser." } }
           ]
         }
       ]
@@ -35,42 +33,36 @@
     <style>
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
             text-align: left;
-        }
-        .option-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #f8fafc;
-            font-size: 0.95rem;
-            font-weight: 600;
         }
         .file-list {
             margin-top: 1.5rem;
-            max-height: 250px;
+            max-height: 240px;
             overflow-y: auto;
-            background: rgba(0,0,0,0.3);
-            border-radius: 16px;
-            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
             display: none;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.65rem;
             border: 1px solid var(--border-color);
         }
         .file-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(139, 92, 246, 0.1);
-            padding: 1rem 1.25rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            transition: transform 0.2s ease;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.85rem 1.1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.25s var(--spring-easing);
         }
         .file-item:hover {
+            border-color: var(--border-hover);
             transform: translateX(4px);
         }
     </style>
@@ -88,47 +80,49 @@
 
     <main>
         <div class="content-section" style="margin-bottom: 0; text-align: center;">
-            <h1 style="font-size: 2.25rem;">Convert Image to PDF Online Free</h1>
-            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Combine multiple photos into a single, highly compressed PDF document. Fast, flawless, and completely offline.</p>
+            <h1>Image to PDF Converter</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Combine multiple photos into a single, highly compressed PDF document completely offline.
+            </p>
         </div>
 
-        <div class="calculator-container" style="max-width: 800px;">
+        <div class="calculator-container" style="max-width: 760px;">
             <div class="drop-zone" id="drop-zone">
                 <input type="file" id="image-files" accept="image/png, image/jpeg, image/webp" multiple style="display: none;">
                 <div class="drop-zone-icon">📄</div>
-                <div class="drop-zone-text">Drag & Drop your images here</div>
-                <div class="drop-zone-hint">Select multiple JPG, PNG, or WEBP files at once (Hold Shift)</div>
+                <div class="drop-zone-text">Drag & Drop images here</div>
+                <div class="drop-zone-hint">Select multiple JPG, PNG, or WEBP files at once</div>
             </div>
             
             <div class="file-list" id="file-list"></div>
 
             <div class="options-grid" id="options-panel" style="display: none;">
-                <div class="option-group">
+                <div class="form-group" style="margin-bottom: 0;">
                     <label>Page Size</label>
-                    <select id="pdf-size" class="form-control" style="padding: 0.85rem;">
+                    <select id="pdf-size" class="form-control">
                         <option value="a4">A4 (Standard)</option>
                         <option value="letter">US Letter</option>
                         <option value="auto">Auto (Fit Image)</option>
                     </select>
                 </div>
-                <div class="option-group">
+                <div class="form-group" style="margin-bottom: 0;">
                     <label>Orientation</label>
-                    <select id="pdf-orientation" class="form-control" style="padding: 0.85rem;">
+                    <select id="pdf-orientation" class="form-control">
                         <option value="p">Portrait</option>
                         <option value="l">Landscape</option>
                     </select>
                 </div>
-                <div class="option-group">
+                <div class="form-group" style="margin-bottom: 0;">
                     <label>Margins</label>
-                    <select id="pdf-margin" class="form-control" style="padding: 0.85rem;">
+                    <select id="pdf-margin" class="form-control">
                         <option value="0">No Margin</option>
                         <option value="20">Standard Margin</option>
                         <option value="40">Large Margin</option>
                     </select>
                 </div>
-                <div class="option-group">
+                <div class="form-group" style="margin-bottom: 0;">
                     <label>Compression</label>
-                    <select id="pdf-compression" class="form-control" style="padding: 0.85rem;">
+                    <select id="pdf-compression" class="form-control">
                         <option value="0.9">High Quality</option>
                         <option value="0.6">Medium (Web)</option>
                         <option value="0.3">Aggressive (Tiny)</option>
@@ -136,86 +130,50 @@
                 </div>
             </div>
 
-            <button id="convert-btn" class="btn" style="margin-top: 2rem; display: none;">🚀 Generate Combined PDF</button>
+            <button id="convert-btn" class="btn" style="margin-top: 1.5rem; display: none;">Generate Combined PDF</button>
 
-            <div id="loading-msg" style="display:none; text-align: center; margin-top: 3rem;">
+            <div id="loading-msg" style="display:none; text-align: center; margin-top: 2rem;">
                 <div class="spinner"></div>
-                <strong style="color: #f8fafc; font-size: 1.3rem;">Compiling PDF Document...</strong>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Compressing and stitching images together natively on your device.</p>
+                <strong style="color: var(--text-main); font-size: 1.15rem;">Compiling PDF Document...</strong>
+                <p style="color: var(--text-muted); margin-top: 0.35rem; font-size: 0.95rem;">Stitching pages offline.</p>
             </div>
 
-            <div class="result-box" id="result-box" style="display: none; margin-top: 3rem;">
+            <div class="result-box" id="result-box" style="display: none;">
                 <h4>Document Compiled</h4>
-                <div class="result-value" style="margin-top: 1.5rem; font-size: 2rem;">Ready to Download!</div>
-                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">⬇️ Download .PDF</a>
-                    <button id="reset-btn" class="btn" style="background: rgba(255,255,255,0.08); box-shadow: none; border: 1px solid rgba(255,255,255,0.1); width: auto; margin-top: 0;">Create Another</button>
+                <div class="result-value" style="margin-top: 0.75rem; font-size: 1.5rem;">Ready to Download</div>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a id="download-link" href="#" class="btn" style="width: auto; margin-top: 0;">Download .PDF</a>
+                    <button id="reset-btn" class="btn btn-secondary" style="width: auto; margin-top: 0;">Create Another</button>
                 </div>
             </div>
         </div>
 
-        <article class="content-section" style="margin-top:2rem;">
+        <article class="content-section">
             <h2>What is an Image to PDF Converter?</h2>
-            <p>Our <strong>Image to PDF Converter</strong> is a fast, offline tool that allows you to easily combine multiple image files (like JPG, PNG, WEBP, or GIF) into a single, multi-page PDF document. It converts and structures your messy photo folders into clean, universally readable PDFs without relying on external cloud servers or slow internet uploads.</p>
+            <p>Our <strong>Image to PDF Converter</strong> allows you to combine multiple photo files into a clean PDF document directly inside your web browser.</p>
 
             <h2>How to use Image to PDF Converter</h2>
-            <p>We built this tool to be fully functional entirely within your web browser, requiring no downloads or technical skills to operate.</p>
             <ol>
-                <li><strong>Provide Media Files:</strong> Drag and drop the photos you want to convert into the outlined box, or tap the box to open your file browser and select multiple images at once.</li>
-                <li><strong>Rearrange the Queue:</strong> Once uploaded, your images will appear in a grid. You can drag them around to reorder them. The order they appear here will be the exact page order of your final PDF.</li>
-                <li><strong>Select Final Parameters:</strong> Choose your desired paper size (like A4 or US Letter), determine if you want margins, and optionally apply compression if you need the final PDF file size to be smaller.</li>
-                <li><strong>Generate PDF:</strong> Click the "Generate Combined PDF" button. The tool will process the images instantly using your computer's own memory.</li>
-                <li><strong>Save Locally:</strong> Once compiled, a download button will appear. Click it to save the new PDF directly to your device.</li>
+                <li><strong>Provide Media Files:</strong> Drag and drop photos into the drop zone.</li>
+                <li><strong>Select Parameters:</strong> Pick page dimensions, margins, and compression level.</li>
+                <li><strong>Generate PDF:</strong> Click "Generate Combined PDF" to compile pages offline.</li>
             </ol>
 
-            <h2>Why use this tool?</h2>
-            <p>Managing dozens of scattered photos is frustrating. By converting your images into a single PDF, you eliminate the clutter. A multi-page PDF is the professional standard for sharing visual documents because anyone, on any device (Windows, Mac, iOS, Android), can open it without needing special photo-viewing software.</p>
-            <p>Our tool shines because it is fully private. Many other PDF converters require you to upload your sensitive photos—like IDs or signed documents—to a remote server. We solve this massive security risk by running the conversion algorithms directly on your device. The photos never leave your screen.</p>
-
-            <h2>Features</h2>
-            <ul>
-                <li><strong>Zero Server Uploads:</strong> Absolute privacy. Your images are converted using your own computer's processing power, meaning they are never transmitted over the internet.</li>
-                <li><strong>Instant Page Adjustments:</strong> Drag and drop your thumbnail images to instantly change the order of the pages before the final PDF is generated.</li>
-                <li><strong>Flexible Output Formatting:</strong> Customize the final product exactly how you need it. Add standard margins, change the orientation to landscape, or apply compression to reduce the final file size.</li>
-            </ul>
-
-            <h2>Use Cases</h2>
-            <ul>
-                <li><strong>Corporate Expense Reporting:</strong> Quickly take photos of your physical receipts on your phone and combine them all into a single, organized PDF file to email your accounting department.</li>
-                <li><strong>Student Assignments:</strong> Did you write out your math homework by hand? Snap a picture of each page and merge them into one PDF file so your teacher doesn't have to download five separate images.</li>
-                <li><strong>Portfolio Creation:</strong> Artists and photographers can quickly assemble their best sample images into a clean, easy-to-scroll PDF booklet for potential clients.</li>
-            </ul>
-
-            <div class="faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: #fff;">Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
                 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Can I upload multiple files simultaneously?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Absolutely. You can select multiple images at once by highlighting a group of them in your file browser, or by dragging and dropping an entire folder's worth of images into the upload box at the same time.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">What does the "Auto (Fit Image)" setting specifically accomplish?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Instead of forcing your images to fit into a standard A4 rectangular page, the "Auto" setting changes the dimensions of the PDF document to perfectly match the size of your original photo. This is perfect for preserving the original aspect ratio without adding white borders.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Is there a hard cap on images per PDF?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">We do not enforce a hard limit, but because the tool runs in your browser, it depends on your device's memory. For optimal performance, especially on mobile phones, we recommend converting no more than 30 or 40 high-resolution images per batch.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Are my images uploaded to any server?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">No. The entire conversion from image to PDF happens locally using your device's processing power. Your images are never sent over the internet or stored on external servers.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Are my images uploaded to any server?</div>
+                    <div class="faq-answer">No. All PDF compiling occurs natively in your browser's local memory.</div>
                 </div>
             </div>
 
-            <div class="related-tools-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #fff;">Related Tools</h2>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="heic-to-jpg.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">HEIC to JPG Converter</a>
-                    <a href="image-compressor.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Image Compressor</a>
-                    <a href="pdf-merger.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">PDF Merger</a>
+                    <a href="heic-to-jpg.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">HEIC to JPG Converter</a>
+                    <a href="image-compressor.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image Compressor</a>
+                    <a href="pdf-merger.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">PDF Merger</a>
                 </div>
             </div>
         </article>
@@ -231,7 +189,6 @@
         </div>
     </footer>
 
-    <!-- jsPDF Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="../js/image-to-pdf.js"></script>
 </body>

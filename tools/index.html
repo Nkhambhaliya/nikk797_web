@@ -25,16 +25,20 @@
     </header>
 
     <main>
-        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Complete Tool Directory</h1>
-        <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.6;">Explore our growing collection of robust, browser-based utilities. All formatting tools and calculators process entirely on your device for absolute <span style="color: #34d399; font-weight: bold;">100% privacy</span> and speed without any server delays.</p>
+        <div style="text-align: center; max-width: 780px; margin: 1rem auto 3rem auto;">
+            <h1>Tool Directory</h1>
+            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.6;">
+                Explore our growing collection of robust, browser-based utilities. All tools process entirely on your device for absolute <span style="color: var(--accent-emerald); font-weight: 600;">100% privacy</span> and speed without any server delays.
+            </p>
 
-        <div class="search-container" style="margin: 2rem 0 3rem 0; max-width: 600px;">
-            <input type="text" id="tool-search" class="form-control"
-                placeholder="🔍 Search tools... (e.g. 'Audio', 'Calculator')"
-                style="padding: 1.1rem 1.5rem; font-size: 1.15rem; border-radius: 20px; background: rgba(0,0,0,0.3); border: 2px solid rgba(139, 92, 246, 0.3);">
-            <div id="no-results"
-                style="display: none; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1); text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 1.2rem;">
-                No tools found matching your search.</div>
+            <div class="search-container" style="margin: 2rem auto 0 auto; max-width: 540px;">
+                <input type="text" id="tool-search" class="form-control"
+                    placeholder="Search tools... (e.g. 'Audio', 'Calculator', 'PDF')"
+                    style="padding: 0.95rem 1.4rem; font-size: 1.05rem; border-radius: var(--radius-pill);">
+                <div id="no-results"
+                    style="display: none; padding: 2rem; background: var(--card-bg); border-radius: var(--radius-md); border: 1px dashed var(--border-color); text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 1.05rem;">
+                    No tools found matching your search.</div>
+            </div>
         </div>
 
         <div class="tools-grid" id="tools-grid">
@@ -42,8 +46,7 @@
                 <span class="card-tag finance">Calculator</span>
                 <div class="card-icon">⏱️</div>
                 <h3>Overtime Calculator</h3>
-                <p>Figure out your extra earnings using standard compliance multipliers. Great for shift-workers
-                    worldwide analyzing their final paychecks.</p>
+                <p>Figure out your extra earnings using standard compliance multipliers. Great for analyzing final paychecks.</p>
             </a>
             <a href="commission-calculator.html" class="card tool-card">
                 <span class="card-tag finance">Calculator</span>
@@ -55,43 +58,37 @@
                 <span class="card-tag finance">Calculator</span>
                 <div class="card-icon">📈</div>
                 <h3>Hourly to Salary Calculator</h3>
-                <p>Plan your personal budget by extrapolating your hourly rate to determine exact annual, monthly, and
-                    weekly gross income.</p>
+                <p>Plan your personal budget by extrapolating your hourly rate to determine exact annual, monthly, and weekly gross income.</p>
             </a>
             <a href="video-to-audio.html" class="card tool-card">
                 <span class="card-tag media">Extractor</span>
                 <div class="card-icon">🎵</div>
                 <h3>Video to Audio Extractor</h3>
-                <p>Pull raw, lossless .WAV tracks directly off MP4 web downloads strictly via pure client-side isolated
-                    device extraction logic.</p>
+                <p>Pull high-quality audio tracks directly off video downloads strictly via pure client-side device extraction.</p>
             </a>
             <a href="heic-to-jpg.html" class="card tool-card">
                 <span class="card-tag media">Converter</span>
                 <div class="card-icon">🖼️</div>
                 <h3>HEIC to JPG Converter</h3>
-                <p>Drag and drop Apple's heavily shielded format, retaining complete picture privacy natively
-                    translating strictly on your device.</p>
+                <p>Decode Apple's high-efficiency image format safely, retaining complete picture privacy natively on your device.</p>
             </a>
             <a href="image-to-pdf.html" class="card tool-card">
                 <span class="card-tag">Utility</span>
                 <div class="card-icon">📄</div>
                 <h3>Image to PDF</h3>
-                <p>Stitch massive 4k photos into simple, lightweight, perfectly margined PDF documents securely
-                    bypassing slow server uploads.</p>
+                <p>Stitch multiple photos into lightweight, beautifully formatted PDF documents securely without server uploads.</p>
             </a>
             <a href="image-compressor.html" class="card tool-card">
                 <span class="card-tag media">Converter</span>
                 <div class="card-icon">🗜️</div>
                 <h3>Image Compressor</h3>
-                <p>Drastically shrink the file size of your photos in seconds natively keeping your privacy 100% secure.
-                </p>
+                <p>Drastically shrink the file size of your photos in seconds natively keeping your privacy 100% secure.</p>
             </a>
             <a href="pdf-merger.html" class="card tool-card">
                 <span class="card-tag">Utility</span>
                 <div class="card-icon">🗂️</div>
                 <h3>PDF Merger</h3>
-                <p>Instantly stitch multiple PDF documents together sequentially directly on your device offline without
-                    tedious uploads.</p>
+                <p>Instantly stitch multiple PDF documents together sequentially directly on your device offline without tedious uploads.</p>
             </a>
         </div>
     </main>
@@ -124,7 +121,7 @@
                         const tagText = card.querySelector('.card-tag') ? card.querySelector('.card-tag').textContent.toLowerCase() : '';
 
                         if (title.includes(query) || desc.includes(query) || tagText.includes(query)) {
-                            card.style.display = 'block';
+                            card.style.display = 'flex';
                             visibleCount++;
                         } else {
                             card.style.display = 'none';

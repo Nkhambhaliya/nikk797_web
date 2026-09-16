@@ -18,46 +18,13 @@
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Any",
           "description": "Compress high-resolution photos and reduce file sizes instantly without server uploads completely offline.",
-          "offers": {
-            "@type": "Offer",
-            "price": "0"
-          }
+          "offers": { "@type": "Offer", "price": "0" }
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How do I compress an image without losing quality?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "By using our intelligent compression slider, you can specify exactly how much data you want to retain. Keeping the quality slider above 80% usually results in dramatic file size reductions with visually lossless quality."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does this tool upload my images to a server?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. The NIKK 797 Image Compressor protects your privacy by processing your photos exclusively inside your web browser. Your images are never uploaded or transmitted to any external server."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Which image formats do you support?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We support JPEG, PNG, and next-generation WebP inputs. You can choose to export your compressed file as a standard JPG or highly efficient WebP document natively."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is there a file size limit for image compression?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Because all operations run locally on your device's hardware instead of relying on limited cloud APIs, there are practically no strict file size limits. You can drop massive 4K raw captures directly."
-              }
-            }
+            { "@type": "Question", "name": "How do I compress an image without losing quality?", "acceptedAnswer": { "@type": "Answer", "text": "By using our intelligent compression slider, you can specify exactly how much data you want to retain." } },
+            { "@type": "Question", "name": "Does this tool upload my images to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The NIKK 797 Image Compressor processes your photos exclusively inside your web browser." } }
           ]
         }
       ]
@@ -76,152 +43,124 @@
     </header>
 
     <main>
-        <div class="content-section" style="max-width: 800px; margin: 0 auto;">
-            <h1 style="text-align: center; margin-bottom: 0.5rem;">Free Image Compressor Online</h1>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2.5rem;">Drastically shrink the file size of your photos in seconds natively keeping your privacy 100% secure.</p>
-            
-            <div class="calculator-container" style="padding: 2rem;">
-                <div id="drop-zone" class="drop-zone" style="margin-bottom: 1.5rem; border: 2px dashed rgba(139, 92, 246, 0.5); padding: 3rem 1.5rem; border-radius: 16px; text-align: center; cursor: pointer; transition: all 0.3s ease;">
-                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">🗜️</div>
-                    <h3 style="margin-bottom: 0.5rem; color: #fff;">Drag & Drop Image File</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">or click to browse your device (JPG, PNG, WEBP)</p>
-                    <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" style="display: none;">
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1>Free Image Compressor</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Drastically shrink photo file sizes in seconds natively keeping your privacy 100% secure.
+            </p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 720px;">
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-zone-icon">🗜️</div>
+                <div class="drop-zone-text">Drag & Drop Image File</div>
+                <div class="drop-zone-hint">or click to browse device (JPG, PNG, WEBP)</div>
+                <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" style="display: none;">
+            </div>
+
+            <div id="file-info" style="display: none; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1.5rem; padding: 1.25rem; background: rgba(255, 255, 255, 0.04); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">✅</div>
+                <h4 id="file-name" style="margin-bottom: 0.2rem; color: var(--text-main); word-break: break-all; text-align: center;">filename.jpg</h4>
+                <span id="file-size" style="color: var(--text-muted); font-size: 0.9rem;">2.5 MB</span>
+                
+                <div id="image-preview" style="margin-top: 1rem; display: none;">
+                    <img id="preview-img" style="max-width: 100%; max-height: 220px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);" />
                 </div>
 
-                <div id="file-info" style="display: none; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(0, 0, 0, 0.2); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✅</div>
-                    <h4 id="file-name" style="margin-bottom: 0.3rem; color: #fff; word-break: break-all; text-align: center;">filename.jpg</h4>
-                    <span id="file-size" style="color: var(--text-muted); font-size: 0.9rem;">2.5 MB</span>
-                    
-                    <div id="image-preview" style="margin-top: 1.5rem; display: none;">
-                        <img id="preview-img" style="max-width: 100%; max-height: 250px; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.4);" />
-                    </div>
+                <button id="reset-upload" class="btn btn-secondary" style="margin-top: 1rem; width: auto; padding: 0.4rem 0.9rem; font-size: 0.85rem;">Remove Image</button>
+            </div>
 
-                    <button id="reset-upload" style="margin-top: 1rem; background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; cursor: pointer;">Remove Image</button>
+            <div id="options-panel" style="display: none; margin-bottom: 1.5rem;">
+                <div class="form-group">
+                    <label for="quality-level" style="display: flex; justify-content: space-between;">
+                        <span>Compression Quality</span>
+                        <span id="quality-display" style="color: var(--accent-blue); font-weight: 600;">80%</span>
+                    </label>
+                    <input type="range" id="quality-level" min="10" max="100" value="80" style="width: 100%; accent-color: var(--accent-blue);">
+                    <small style="color: var(--text-muted); margin-top: 0.35rem; display: block;">Lower values decrease size while retaining target resolution.</small>
                 </div>
 
-                <div id="options-panel" style="display: none; margin-bottom: 2rem;">
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label for="quality-level" style="display: flex; justify-content: space-between;">
-                            <span>Compression Quality</span>
-                            <span id="quality-display" style="color: #c4b5fd; font-weight: 700;">80%</span>
-                        </label>
-                        <input type="range" id="quality-level" min="10" max="100" value="80" style="width: 100%; accent-color: #8b5cf6;">
-                        <small style="color: var(--text-muted); margin-top: 0.5rem; display: block;">Lower values strictly shrink file size but introduce minor artifacting natively.</small>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label for="resize-option">Max Resolution (Resizing)</label>
-                        <select id="resize-option" class="form-control" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(139, 92, 246, 0.3);">
-                            <option value="original">Keep Original Size</option>
-                            <option value="1920">Scale Down to 1920px (1080p Web)</option>
-                            <option value="1280">Scale Down to 1280px (Optimal Mobile)</option>
-                            <option value="800">Scale Down to 800px (Aggressive Web)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="output-format">Output Format</label>
-                        <select id="output-format" class="form-control" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(139, 92, 246, 0.3);">
-                            <option value="image/jpeg">JPG (Standard Web Format)</option>
-                            <option value="image/webp">WEBP (Highly Efficient Next-Gen)</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="resize-option">Max Resolution (Resizing)</label>
+                    <select id="resize-option" class="form-control">
+                        <option value="original">Keep Original Size</option>
+                        <option value="1920">Scale Down to 1920px (1080p Web)</option>
+                        <option value="1280">Scale Down to 1280px (Optimal Mobile)</option>
+                        <option value="800">Scale Down to 800px (Aggressive Web)</option>
+                    </select>
                 </div>
 
-                <div style="text-align: center;">
-                    <button id="compress-btn" class="btn" style="width: 100%; max-width: 400px; display: none; margin: 0 auto;">Compress Image Locally</button>
-                </div>
-
-                <div id="loading-msg" style="display: none; text-align: center; margin-top: 1.5rem;">
-                    <div class="spinner"></div>
-                    <p style="margin-top: 1rem; color: #c4b5fd; font-weight: 500;">Applying structural compression offline...</p>
-                </div>
-
-                <div id="result-display" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎉</div>
-                    <h3 style="color: #34d399; margin-bottom: 1.5rem;">Image Successfully Compressed!</h3>
-                    
-                    <div style="display: flex; justify-content: space-around; background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
-                        <div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Original</div>
-                            <div id="result-original-size" style="font-size: 1.25rem; font-weight: 700; color: #fff;">--</div>
-                        </div>
-                        <div style="color: #34d399; font-size: 1.5rem; display: flex; align-items: center;">➔</div>
-                        <div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Compressed</div>
-                            <div id="result-new-size" style="font-size: 1.25rem; font-weight: 700; color: #34d399;">--</div>
-                        </div>
-                    </div>
-
-                    <a id="download-trigger" class="btn" style="display: inline-block; width: 100%; max-width: 300px; text-decoration: none; padding: 1rem 2rem; font-size: 1.15rem;">Download Compressed Image</a>
+                <div class="form-group">
+                    <label for="output-format">Output Format</label>
+                    <select id="output-format" class="form-control">
+                        <option value="image/jpeg">JPG (Standard Web Format)</option>
+                        <option value="image/webp">WEBP (Next-Gen Format)</option>
+                    </select>
                 </div>
             </div>
 
-        <article class="content-section" style="margin-top:2rem;">
+            <div style="text-align: center;">
+                <button id="compress-btn" class="btn" style="display: none; margin: 0 auto;">Compress Image Locally</button>
+            </div>
+
+            <div id="loading-msg" style="display: none; text-align: center; margin-top: 1.5rem;">
+                <div class="spinner"></div>
+                <p style="margin-top: 0.5rem; color: var(--text-main); font-weight: 500;">Applying compression offline...</p>
+            </div>
+
+            <div id="result-display" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.25); border-radius: var(--radius-md); text-align: center;">
+                <h3 style="color: var(--accent-emerald); margin-bottom: 1rem; margin-top: 0;">Image Compressed</h3>
+                
+                <div style="display: flex; justify-content: space-around; background: rgba(0, 0, 0, 0.3); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+                    <div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Original</div>
+                        <div id="result-original-size" style="font-size: 1.15rem; font-weight: 700; color: #fff;">--</div>
+                    </div>
+                    <div style="color: var(--accent-emerald); font-size: 1.25rem; display: flex; align-items: center;">➔</div>
+                    <div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Compressed</div>
+                        <div id="result-new-size" style="font-size: 1.15rem; font-weight: 700; color: var(--accent-emerald);">--</div>
+                    </div>
+                </div>
+
+                <a id="download-trigger" class="btn" style="width: auto; padding: 0.8rem 1.75rem;">Download Compressed Image</a>
+            </div>
+        </div>
+
+        <article class="content-section">
             <h2>What is an Image Compressor?</h2>
-            <p>Our <strong>Image Compressor</strong> is a secure, browser-based utility that drastically reduces the file size of your images (like JPG, PNG, and WEBP) without destroying their visual quality. It achieves this by intelligently removing invisible metadata and optimizing exactly how colors are stored.</p>
-            
+            <p>Our <strong>Image Compressor</strong> reduces photo file sizes (JPG, PNG, WEBP) without quality loss by optimizing color encoding and stripping unnecessary EXIF data.</p>
+
             <h2>How to use Image Compressor</h2>
-            <p>Using this application is incredibly straightforward. Since it runs entirely in your browser window, there is nothing to download.</p>
             <ol>
-                <li><strong>Provide Media File:</strong> Drag and drop your image directly onto the page, or click the upload area to select a photo from your computer or phone gallery.</li>
-                <li><strong>Select Compression Logic:</strong> Once the image loads, adjust the quality slider. Lower quality means a smaller file size. You will instantly see a live preview comparing the original and compressed sizes.</li>
-                <li><strong>Save Locally:</strong> Click the "Download Compressed Image" button once you are happy with the size and quality. Your new lightweight image will save instantly.</li>
+                <li><strong>Provide Media File:</strong> Drag and drop your image or click to select a file.</li>
+                <li><strong>Select Compression Settings:</strong> Adjust quality level and export resolution.</li>
+                <li><strong>Save Locally:</strong> Click "Download Compressed Image" to retrieve your file.</li>
             </ol>
 
-            <h2>Why use this tool?</h2>
-            <p>Large image files can make emails bounce, prevent successful form submissions, and drastically slow down your website. By using this tool, you can shrink multi-megabyte photos down to a few kilobytes. This solves almost all "file too large" errors encountered online.</p>
-            <p>Most importantly, you never have to expose your personal photos to a distant server. Typical online compressors force you to upload your family photos or confidential business documents to a cloud database. Our tool mathematically processes the pixels locally on your own CPU, ensuring absolute privacy.</p>
-            
-            <h2>Features</h2>
-            <ul>
-                <li><strong>Zero Server Uploads:</strong> Complete privacy. Your photos stay on your device and are never sent to a tracking server.</li>
-                <li><strong>Instant Previews:</strong> See the exact file size you will get before downloading, reducing the need for trial and error.</li>
-                <li><strong>Free & Unrestricted:</strong> We do not impose daily conversion limits, hidden paywalls, or annoying watermarks on your compressed photos.</li>
-            </ul>
-
-            <h2>Use Cases</h2>
-            <ul>
-                <li><strong>Website Performance:</strong> Web developers and bloggers can run their hero images through this tool to ensure their webpages load lightning-fast for visitors.</li>
-                <li><strong>Online Submissions:</strong> Students applying for universities or adults submitting digital passport photos online can ensure their uploads squeak under strict 2MB standard limits.</li>
-                <li><strong>Storage Optimization:</strong> Free up gigabytes of space on your hard drive by bulk-shrinking massive iPhone or DSLR camera dumps before archiving them.</li>
-            </ul>
-
-            <div class="faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: #fff;">Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
                 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">How do I compress an image without losing quality?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">By using our intelligent compression slider, you can specify exactly how much data you want to retain. Keeping the quality slider above 80% usually results in dramatic file size reductions with visually lossless rendering.</p>
+                <div class="faq-item">
+                    <div class="faq-question">How do I compress an image without losing quality?</div>
+                    <div class="faq-answer">Setting the quality slider around 80% yields significant file size savings while maintaining visual fidelity.</div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Does this tool upload my images to a server?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">No. The NIKK 797 Image Compressor protects your privacy by processing your photos securely inside your own web browser. Your images are never uploaded or sent to external servers.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Which formats do you support?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">We support standard formats including JPEG, PNG, and WebP. You can choose to export your compressed image as a standard JPG, or as a highly efficient WebP file.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Is there a file size limit for image compression?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Because this tool uses your device's memory to process the image, there is no strict file size limit on our end. You can compress massive 4K raw images as long as your device has enough RAM to handle it.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Does this tool upload my images to a server?</div>
+                    <div class="faq-answer">No. All pixel operations occur strictly within your device memory.</div>
                 </div>
             </div>
 
-            <div class="related-tools-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #fff;">Related Tools</h2>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="heic-to-jpg.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">HEIC to JPG Converter</a>
-                    <a href="image-to-pdf.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Image to PDF</a>
-                    <a href="video-to-audio.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Video to Audio</a>
+                    <a href="heic-to-jpg.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">HEIC to JPG Converter</a>
+                    <a href="image-to-pdf.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image to PDF</a>
+                    <a href="video-to-audio.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Video to Audio</a>
                 </div>
             </div>
         </article>
-        </div>
     </main>
 
     <footer class="footer">

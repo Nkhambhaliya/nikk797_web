@@ -47,12 +47,14 @@
 
     <main>
         <div class="content-section" style="margin-bottom: 0; text-align: center;">
-            <h1 style="font-size: 2.25rem;">Calculate Sales Commission Online Free</h1>
-            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Quickly calculate exactly how much commission you've earned from your total sales amount using straightforward percentage arithmetic.</p>
+            <h1>Calculate Sales Commission</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Quickly calculate exactly how much commission you have earned from total sales using straightforward percentage arithmetic.
+            </p>
         </div>
 
         <div class="calculator-container">
-            <div class="form-group" style="margin-bottom: 2rem;">
+            <div class="form-group">
                 <label for="currency">Currency</label>
                 <select id="currency" class="form-control" style="cursor: pointer;">
                     <option value="USD" selected>USD ($) - Dollar</option>
@@ -66,16 +68,12 @@
 
             <div class="form-group">
                 <label for="sales-amount">Total Sales Amount</label>
-                <div class="input-wrapper">
-                    <input type="number" id="sales-amount" class="form-control" placeholder="e.g. 50000" min="0" step="any">
-                </div>
+                <input type="number" id="sales-amount" class="form-control" placeholder="e.g. 50000" min="0" step="any">
             </div>
             
             <div class="form-group">
                 <label for="commission-percent">Commission Percentage (%)</label>
-                <div class="input-wrapper">
-                    <input type="number" id="commission-percent" class="form-control" placeholder="e.g. 5" min="0" max="100" step="any">
-                </div>
+                <input type="number" id="commission-percent" class="form-control" placeholder="e.g. 5" min="0" max="100" step="any">
             </div>
 
             <button id="calc-btn" class="btn">Calculate Earnings</button>
@@ -86,72 +84,43 @@
             </div>
         </div>
 
-        <article class="content-section" style="margin-top:2rem;">
+        <article class="content-section">
             <h2>What is a Commission Calculator?</h2>
-            <p>Our <strong>Commission Calculator</strong> is a simple tool that helps you figure out exactly how much money you have earned from a sale. Instead of doing the math yourself, you can just enter the total sale amount and your commission percentage. The calculator does the rest instantly.</p>
+            <p>Our <strong>Commission Calculator</strong> helps you figure out your cut from any transaction. Enter your gross deal size and percentage structure to compute your payout.</p>
 
             <h2>How to use the Commission Calculator</h2>
-            <p>Using this tool is quick and easy. Follow these steps to find out your earnings:</p>
             <ol>
-                <li><strong>Select your Currency:</strong> Choose the currency you are working with (like USD, EUR, or INR) using the dropdown menu.</li>
-                <li><strong>Enter Total Sales Amount:</strong> Type in the total value of the items or services you sold.</li>
-                <li><strong>Input Commission Percentage:</strong> Enter the percentage you earn from the sale.</li>
-                <li><strong>Calculate Results:</strong> Click the "Calculate Earnings" button. The tool will instantly show you how much money you made.</li>
+                <li><strong>Select your Currency:</strong> Choose your currency preference (USD, EUR, INR, etc.).</li>
+                <li><strong>Enter Total Sales Amount:</strong> Input the gross transaction total.</li>
+                <li><strong>Input Commission Percentage:</strong> Enter your agreed commission rate percentage.</li>
+                <li><strong>Calculate Results:</strong> Click "Calculate Earnings" to review your payout.</li>
             </ol>
 
-            <h2>Why use this tool?</h2>
-            <p>Whether you are in real estate, car sales, or retail, knowing exactly how much you are getting paid is important. Doing the math in your head or on paper can lead to mistakes. Our calculator gives you the exact number in seconds so you can verify your paycheck is correct.</p>
-            <p>Most importantly, our tool is fully private. Because it runs directly in your web browser, your financial numbers are never sent over the internet or saved to a database.</p>
-
-            <h2>Features</h2>
-            <ul>
-                <li><strong>100% Private:</strong> Your sales numbers stay on your device and are never sent to a server.</li>
-                <li><strong>Fast Results:</strong> Get your exact commission amount instantly.</li>
-                <li><strong>Works with Decimals:</strong> Easily calculate exact amounts using decimal percentages (like 5.5%).</li>
-            </ul>
-
-            <h2>Use Cases</h2>
-            <ul>
-                <li><strong>Real Estate Agents:</strong> Quickly figure out how much you will earn from selling a house before taxes.</li>
-                <li><strong>Retail Workers:</strong> Check how much extra money you made this week from hitting your sales goals on the floor.</li>
-                <li><strong>Freelancers:</strong> Calculate exactly what your cut is when you help negotiate a deal between two clients.</li>
-            </ul>
-
-            <div class="faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: #fff;">Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
                 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">What is a standard commission rate?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">There is no single standard rate because it changes based on the industry. Software sales might pay 10% to 15%, while selling physical products in a store might only pay 3% to 6%.</p>
+                <div class="faq-item">
+                    <div class="faq-question">What is a standard commission rate?</div>
+                    <div class="faq-answer">Commission structures vary widely by industry. Tech and software sales typically command 10% to 15%, while high-volume retail or wholesale margins range from 3% to 6%.</div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Are commission payouts taxed?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Yes. The government considers commission payouts to be part of your normal income, meaning they are taxed just like a regular salary.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Are commission payouts taxed?</div>
+                    <div class="faq-answer">Yes. Revenue authorities classify commission earnings as standard taxable income subject to standard income tax schedules.</div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">What is a draw against commission?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">A draw is basically an advance loan from your employer based on the sales they expect you to make. If you earn more commission than your draw, you keep the extra. If you earn less, you usually have to pay back the difference.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Can I use this for affiliate marketing?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Yes! Just enter the total sales you generated through your affiliate link into the 'Sales Amount' box, and enter your affiliate payout percentage. It works exactly the same.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Is my financial data saved anywhere?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">No. Your calculations are done entirely inside your browser. We never save your financial numbers or send them to a server.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use this for affiliate marketing?</div>
+                    <div class="faq-answer">Yes. Simply enter your total driven sales volume into the Sales Amount field and your affiliate split rate in the Percentage field.</div>
                 </div>
             </div>
 
-            <div class="related-tools-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #fff;">Related Tools</h2>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="overtime-calculator.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Overtime Calculator</a>
-                    <a href="hourly-to-salary-calculator.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Hourly to Salary Calculator</a>
-                    <a href="image-compressor.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Image Compressor</a>
+                    <a href="overtime-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Overtime Calculator</a>
+                    <a href="hourly-to-salary-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Hourly to Salary</a>
+                    <a href="image-compressor.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image Compressor</a>
                 </div>
             </div>
         </article>

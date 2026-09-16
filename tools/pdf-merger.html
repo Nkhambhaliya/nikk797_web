@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <!-- Include pdf-lib for client-side PDF manipulation -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script type="application/ld+json">
     {
@@ -20,46 +19,12 @@
           "applicationCategory": "UtilityApplication",
           "operatingSystem": "Any",
           "description": "Combine multiple PDF documents into a single file completely offline in your browser safely and securely.",
-          "offers": {
-            "@type": "Offer",
-            "price": "0"
-          }
+          "offers": { "@type": "Offer", "price": "0" }
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Is it actually free to merge PDFs here?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. NIKK 797 Tools provides this PDF combination utility completely free of charge. There are no hidden subscription paywalls, no daily file limits, and absolutely no watermarks stamped onto your final PDF document."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do you protect my private PDF files?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We protect your privacy by mathematically isolating the processing engine directly inside your personal device. Unlike massive legacy competitors, our platform does not have a server connection capable of receiving, reading, or storing your PDFs. Everything stays exclusively offline within your web browser memory mapping arrays."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can I merge PDF files offline without the internet?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes! Once you physically load the NIKK 797 PDF Merger website, the core library is downloaded locally. You can actually disconnect your computer entirely from your Wi-Fi or cellular network, and the PDF joiner will continue to function natively, ensuring air-gapped security for high-classified files."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can I rearrange the order of my PDFs before merging?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Absolutely. The tool tracks your uploaded documents sequence meticulously. You can seamlessly use our 'Up' and 'Down' arrow buttons next to each file to sort your exact timeline before executing the final compiler script natively."
-              }
-            }
+            { "@type": "Question", "name": "Is it free to merge PDFs here?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, NIKK 797 Tools provides this PDF combination utility 100% free with zero watermarks." } }
           ]
         }
       ]
@@ -78,119 +43,84 @@
     </header>
 
     <main>
-        <div class="content-section" style="max-width: 800px; margin: 0 auto;">
-            <h1 style="text-align: center; margin-bottom: 0.5rem;">Free PDF Merger Online</h1>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2.5rem;">Instantly stitch multiple PDF documents together sequentially directly on your device. Zero server uploads required.</p>
-            
-            <div class="calculator-container" style="padding: 2rem;">
-                <div id="drop-zone" class="drop-zone" style="margin-bottom: 1.5rem; border: 2px dashed rgba(139, 92, 246, 0.5); padding: 3rem 1.5rem; border-radius: 16px; text-align: center; cursor: pointer; transition: all 0.3s ease;">
-                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">🗂️</div>
-                    <h3 style="margin-bottom: 0.5rem; color: #fff;">Drag & Drop PDF Files Here</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Select two or more PDF documents to merge.</p>
-                    <input type="file" id="file-input" accept="application/pdf" multiple style="display: none;">
-                </div>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1>Free PDF Merger</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Instantly stitch multiple PDF documents together sequentially directly on your device. Zero server uploads required.
+            </p>
+        </div>
 
-                <div id="file-list-block" style="display: none; flex-direction: column; margin-bottom: 2rem; background: rgba(0, 0, 0, 0.2); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem;">
-                    <h3 style="margin-top: 0; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; font-size: 1.2rem;">Files to Merge (In Order)</h3>
-                    <div id="file-list" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <!-- JS injected rows -->
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; justify-content: center;">
-                        <button id="add-more-btn" class="btn" style="background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); padding: 0.5rem 1rem; font-size: 0.9rem;">+ Add More Files</button>
-                        <button id="reset-upload" style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">Clear All</button>
-                    </div>
-                </div>
+        <div class="calculator-container" style="max-width: 760px;">
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-zone-icon">🗂️</div>
+                <div class="drop-zone-text">Drag & Drop PDF Files Here</div>
+                <div class="drop-zone-hint">Select two or more PDF documents to merge</div>
+                <input type="file" id="file-input" accept="application/pdf" multiple style="display: none;">
+            </div>
 
-                <div style="text-align: center;">
-                    <button id="merge-btn" class="btn" style="width: 100%; max-width: 400px; display: none; margin: 0 auto; background: linear-gradient(135deg, #10b981, #059669);">Merge PDFs Now</button>
-                </div>
-
-                <div id="loading-msg" style="display: none; text-align: center; margin-top: 1.5rem;">
-                    <div class="spinner"></div>
-                    <p style="margin-top: 1rem; color: #c4b5fd; font-weight: 500;">Reading and compiling PDF streams organically offline...</p>
-                </div>
-
-                <div id="result-display" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📑</div>
-                    <h3 style="color: #34d399; margin-bottom: 1.5rem; font-size: 1.5rem;">Merger Complete!</h3>
-                    
-                    <div style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem;">
-                        Successfully stitched <span id="merged-count" style="color: #fff; font-weight: bold;">--</span> documents into a single master PDF.
-                    </div>
-
-                    <div id="pdf-preview-container" style="margin-bottom: 1.5rem; border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 8px; overflow: hidden; height: 450px; display: none; background: #fff;">
-                        <iframe id="pdf-preview-frame" style="width: 100%; height: 100%; border: none;"></iframe>
-                    </div>
-
-                    <a id="download-trigger" class="btn" style="display: inline-block; width: 100%; max-width: 300px; text-decoration: none; padding: 1rem 2rem; font-size: 1.15rem;">Download Merged PDF</a>
+            <div id="file-list-block" style="display: none; flex-direction: column; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.04); border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 1.25rem;">
+                <h3 style="margin-top: 0; margin-bottom: 0.85rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; font-size: 1.1rem; color: var(--text-main);">Files to Merge (In Order)</h3>
+                <div id="file-list" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem;"></div>
+                
+                <div style="display: flex; gap: 0.75rem; justify-content: center;">
+                    <button id="add-more-btn" class="btn btn-secondary" style="width: auto; padding: 0.4rem 0.9rem; font-size: 0.85rem;">+ Add More Files</button>
+                    <button id="reset-upload" class="btn btn-secondary" style="width: auto; padding: 0.4rem 0.9rem; font-size: 0.85rem;">Clear All</button>
                 </div>
             </div>
 
-        <article class="content-section" style="margin-top:2rem;">
+            <div style="text-align: center;">
+                <button id="merge-btn" class="btn" style="display: none; margin: 0 auto;">Merge PDFs Now</button>
+            </div>
+
+            <div id="loading-msg" style="display: none; text-align: center; margin-top: 1.5rem;">
+                <div class="spinner"></div>
+                <p style="margin-top: 0.5rem; color: var(--text-main); font-weight: 500;">Stitching PDF streams offline...</p>
+            </div>
+
+            <div id="result-display" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.25); border-radius: var(--radius-md); text-align: center;">
+                <h3 style="color: var(--accent-emerald); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.35rem;">Merger Complete</h3>
+                
+                <div style="color: var(--text-muted); margin-bottom: 1.25rem; font-size: 1rem;">
+                    Stitched <span id="merged-count" style="color: #fff; font-weight: 600;">--</span> documents into a single PDF.
+                </div>
+
+                <div id="pdf-preview-container" style="margin-bottom: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; height: 380px; display: none; background: #fff;">
+                    <iframe id="pdf-preview-frame" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+
+                <a id="download-trigger" class="btn" style="width: auto; padding: 0.8rem 1.75rem;">Download Merged PDF</a>
+            </div>
+        </div>
+
+        <article class="content-section">
             <h2>What is a PDF Merger?</h2>
-            <p>Our <strong>PDF Merger</strong> allows you to combine multiple PDF documents into a single, organized file. Instead of sending out five different email attachments, you can stitch them together into one unified document. Unlike other tools that require you to upload your personal files to a cloud server, this merger works directly inside your browser so your files never leave your device.</p>
-            
+            <p>Our <strong>PDF Merger</strong> allows you to combine multiple PDF documents into a single file directly inside your browser.</p>
+
             <h2>How to use PDF Merger</h2>
-            <p>We designed this tool to be fast, private, and incredibly easy to use. Follow these quick steps to combine your documents.</p>
             <ol>
-                <li><strong>Upload Your PDFs:</strong> Drag and drop the PDF files you want to merge into the designated area. You can also click the box to manually select multiple files from your computer.</li>
-                <li><strong>Rearrange the Order:</strong> Once uploaded, your files will appear in a list. You can click the "Up" or "Down" arrows next to each file to change their order. The final PDF will reflect this exact sequence.</li>
-                <li><strong>Merge and Download:</strong> When you are happy with the order, click "Merge PDFs Now". The tool will instantly compile them, and you can click the download button to grab your newly combined PDF.</li>
+                <li><strong>Upload Your PDFs:</strong> Drag and drop your PDF files.</li>
+                <li><strong>Rearrange the Order:</strong> Re-order uploaded files as needed.</li>
+                <li><strong>Merge and Download:</strong> Click "Merge PDFs Now" to render your new document.</li>
             </ol>
 
-            <h2>Why use this tool?</h2>
-            <p>Combining PDFs is a common task, but most online tools pose a massive privacy risk. When you use typical online PDF websites, you are uploading your sensitive data—like bank statements, legal contracts, or medical records—to an unknown server. Our tool eliminates this risk completely by processing everything locally on your own machine.</p>
-            <p>Additionally, because the merging happens on your device rather than a remote server, there are no artificial file size limits or paywalls blocking you from combining large documents.</p>
-            
-            <h2>Features</h2>
-            <ul>
-                <li><strong>Zero Server Uploads:</strong> Absolute privacy. Your documents are merged using your own computer's memory, so they are never sent across the internet.</li>
-                <li><strong>Custom Sorting:</strong> Don't worry about the order you upload them in. Our intuitive list view lets you reorder files effortlessly before merging.</li>
-                <li><strong>Live Preview:</strong> Once the merge is complete, you can review the final combined document directly in your browser before you download it.</li>
-            </ul>
-
-            <h2>Use Cases</h2>
-            <ul>
-                <li><strong>Office Professionals:</strong> Consolidate separate invoices, receipts, and expense reports into a single, neat PDF before sending it to the accounting department.</li>
-                <li><strong>Students & Teachers:</strong> Combine a syllabus, assignment instructions, and reading materials into one massive study guide file for easy distribution and offline reading.</li>
-                <li><strong>Legal & Financial:</strong> Safely combine highly confidential contracts, tax forms, and addendums offline without risking a data leak from a third-party server.</li>
-            </ul>
-
-            <div class="faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: #fff;">Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
                 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Is it actually free to merge PDFs here?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Yes. NIKK 797 Tools provides this PDF combination utility completely free of charge. There are no hidden subscription paywalls, no daily file limits, and absolutely no watermarks stamped onto your final PDF document.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">How do you protect my private PDF files?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">We protect your privacy by mathematically isolating the processing engine directly inside your personal device. Unlike massive legacy competitors, our platform does not have a server connection capable of receiving, reading, or storing your PDFs. Everything stays exclusively offline within your web browser memory mapping arrays.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Can I merge PDF files offline without the internet?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Yes! Once you physically load the NIKK 797 PDF Merger website, the core library is downloaded locally. You can actually disconnect your computer entirely from your Wi-Fi or cellular network, and the PDF joiner will continue to function natively, ensuring air-gapped security for high-classified files.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Can I rearrange the order of my PDFs before merging?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Absolutely. The tool tracks your uploaded documents sequence meticulously. You can seamlessly use our "Up" and "Down" arrow buttons next to each file to sort your exact timeline before executing the final compiler script natively.</p>
+                <div class="faq-item">
+                    <div class="faq-question">How do you protect my private PDF files?</div>
+                    <div class="faq-answer">All PDF manipulation runs locally inside browser memory. Files are never transmitted over external network calls.</div>
                 </div>
             </div>
 
-            <div class="related-tools-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #fff;">Related Tools</h2>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="image-to-pdf.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Image to PDF</a>
-                    <a href="video-to-audio.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Video to Audio</a>
-                    <a href="image-compressor.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Image Compressor</a>
+                    <a href="image-to-pdf.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image to PDF</a>
+                    <a href="video-to-audio.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Video to Audio</a>
+                    <a href="image-compressor.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Image Compressor</a>
                 </div>
             </div>
         </article>
-        </div>
     </main>
 
     <footer class="footer">

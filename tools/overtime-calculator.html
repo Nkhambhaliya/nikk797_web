@@ -50,14 +50,14 @@
 
     <main>
         <div class="content-section" style="margin-bottom: 0; text-align: center;">
-            <h1 style="font-size: 2.25rem;">Calculate Overtime Pay Online Free</h1>
-            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto;">Calculate exactly how much
-                overtime pay you have earned based on your basic hourly wage, overtime hours worked, and standard
-                multiplier.</p>
+            <h1>Calculate Overtime Pay</h1>
+            <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Calculate exactly how much overtime pay you have earned based on your hourly wage, extra hours worked, and standard multiplier.
+            </p>
         </div>
 
         <div class="calculator-container">
-            <div class="form-group" style="margin-bottom: 2rem;">
+            <div class="form-group">
                 <label for="currency">Currency</label>
                 <select id="currency" class="form-control" style="cursor: pointer;">
                     <option value="USD" selected>USD ($) - Dollar</option>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="form-group">
-                <label for="hourly-wage">Your Hourly Wage</label>
+                <label for="hourly-wage">Hourly Wage</label>
                 <input type="number" id="hourly-wage" class="form-control" placeholder="e.g. 50" min="0" step="any">
             </div>
 
@@ -92,73 +92,59 @@
             </div>
         </div>
 
-        <article class="content-section" style="margin-top:2rem;">
+        <article class="content-section">
             <h2>What is an Overtime Calculator?</h2>
-            <p>Our <strong>Overtime Calculator</strong> helps you quickly figure out exactly how much extra money you earned by working past your standard hours. You don't need to do any difficult math in your head. Just tap in your hourly wage and your extra hours, and the calculator instantly tells you how much your paycheck will increase.</p>
+            <p>Our <strong>Overtime Calculator</strong> helps you quickly figure out exactly how much extra money you earned by working past your standard hours. Tap in your hourly wage and extra hours, and the calculator instantly projects your added earnings.</p>
 
             <h2>How to use the Overtime Calculator</h2>
-            <p>You can find your extra pay in just a few clicks. Follow these steps:</p>
             <ol>
-                <li><strong>Select your Currency:</strong> Pick the currency you get paid in using the dropdown menu (such as USD, EUR, or GBP).</li>
-                <li><strong>Enter your Hourly Wage:</strong> Type in how much you make per hour. If you are on a salary, divide your monthly pay by your total monthly hours.</li>
-                <li><strong>Input Overtime Hours Worked:</strong> Enter the exact number of extra hours you worked this week or month.</li>
-                <li><strong>Set the Multiplier:</strong> By default, this is set to 1.5, which is "time and a half." If you worked a holiday and get double pay, change it to 2.0.</li>
-                <li><strong>Calculate:</strong> Click the "Calculate Overtime Pay" button to see your overall extra earnings instantly.</li>
+                <li><strong>Select your Currency:</strong> Pick the currency you get paid in (USD, EUR, GBP, etc.).</li>
+                <li><strong>Enter your Hourly Wage:</strong> Type in your rate per hour.</li>
+                <li><strong>Input Overtime Hours Worked:</strong> Enter the number of extra hours worked.</li>
+                <li><strong>Set the Multiplier:</strong> By default, this is 1.5 (time-and-a-half). Adjust to 2.0 for double-time.</li>
+                <li><strong>Calculate:</strong> Click "Calculate Overtime Pay" to see your overall extra earnings instantly.</li>
             </ol>
 
             <h2>Why use this tool?</h2>
-            <p>Payroll departments make mistakes. If you work long hours on the weekends, you want to make sure you get paid correctly. Our simple calculator helps you double-check your paystub to make sure you earned what you deserve.</p>
-            <p>Unlike other websites, our calculator keeps your pay private. It runs fully offline inside your web browser. This means your personal salary information is completely secure and is never uploaded to a cloud server.</p>
+            <p>Our calculator helps you double-check your paystub to ensure you earned what you deserve. Processing happens 100% offline in your browser—your financial figures are never uploaded to a server.</p>
 
             <h2>Features</h2>
             <ul>
-                <li><strong>100% Free & Private:</strong> This tool runs offline, meaning your salary info stays safely on your own computer.</li>
-                <li><strong>Instant Results:</strong> See exactly how much you made without waiting.</li>
-                <li><strong>Custom Multipliers:</strong> Easily change your overtime pay rate to 1.5x (time-and-a-half) or 2.0x (double-time).</li>
+                <li><strong>100% Free & Private:</strong> Offline execution ensures your salary info remains strictly on your device.</li>
+                <li><strong>Instant Calculation:</strong> Clear, precise results formatted in your chosen currency.</li>
+                <li><strong>Custom Multipliers:</strong> Supports standard 1.5x time-and-a-half or 2.0x holiday rates.</li>
             </ul>
 
-            <h2>Use Cases</h2>
-            <ul>
-                <li><strong>Hourly Employees:</strong> Double-check your next paycheck to make sure your boss actually paid you for your weekend shift.</li>
-                <li><strong>Shift Supervisors:</strong> Calculate exactly how much it will cost the company before keeping your team for a few extra hours.</li>
-                <li><strong>Freelancers:</strong> Decide how much to charge a client if they suddenly need you to rush a job outside of your standard hours.</li>
-            </ul>
-
-            <div class="faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: #fff;">Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
                 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">What is the standard overtime multiplier?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">For most hourly workers, standard overtime is "time and a half" (1.5x your hourly pay). However, you should check your location's local labor laws, as some holidays or extremely long shifts can require double time (2.0x).</p>
+                <div class="faq-item">
+                    <div class="faq-question">What is the standard overtime multiplier?</div>
+                    <div class="faq-answer">Standard overtime is typically "time and a half" (1.5x your hourly pay). Holidays or extended shifts can require double time (2.0x) depending on labor regulations.</div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">How is overtime pay calculated?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">The exact formula is very simple: your Hourly Wage multiplied by your Overtime Hours worked, multiplied by your Overtime Multiplier (like 1.5). Add this result to your normal paycheck to get your total earnings.</p>
+                <div class="faq-item">
+                    <div class="faq-question">How is overtime pay calculated?</div>
+                    <div class="faq-answer">Formula: Hourly Wage × Overtime Hours × Overtime Multiplier. The resulting amount represents your added gross earnings.</div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Do salaried workers get overtime?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">This depends heavily on your local labor laws and your employment contract. Some salaried employees, like office managers, are exempt and do not receive overtime. However, many workers are still legally owed overtime even if they are on a fixed salary.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Do salaried workers get overtime?</div>
+                    <div class="faq-answer">This depends on employment classification. Non-exempt salaried workers are legally entitled to overtime, whereas exempt employees typically receive a fixed wage regardless of hours.</div>
                 </div>
 
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Is overtime pay taxed?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">Yes. Overtime pay is treated just like standard income or supplemental wages. That means it will be heavily taxed just like the rest of your paycheck.</p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">Does this calculator save my financial data?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.5; margin: 0;">No. Our calculator is 100% private. All the math is done directly in your web browser. We never track your variables or save your financial information to a server.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Is overtime pay taxed?</div>
+                    <div class="faq-answer">Yes. Overtime pay is treated as standard earnings and subject to applicable tax withholdings.</div>
                 </div>
             </div>
 
-            <div class="related-tools-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #fff;">Related Tools</h2>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="commission-calculator.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Commission Calculator</a>
-                    <a href="hourly-to-salary-calculator.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">Hourly to Salary</a>
-                    <a href="pdf-merger.html" class="btn" style="width: auto; padding: 0.75rem 1.5rem; font-size: 1rem; background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd;">PDF Merger</a>
+                    <a href="commission-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Commission Calculator</a>
+                    <a href="hourly-to-salary-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Hourly to Salary</a>
+                    <a href="pdf-merger.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">PDF Merger</a>
                 </div>
             </div>
         </article>
