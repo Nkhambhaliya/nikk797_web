@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free GST Calculator Online | Calculate CGST, SGST & IGST (Exclusive & Inclusive)</title>
+    <meta name="description"
+        content="Calculate GST online for free. Compute GST Exclusive (Add GST) and GST Inclusive (Remove GST) with CGST, SGST, and IGST breakdowns for 5%, 12%, 18%, and 28% tax slabs. 100% private.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    
+    <!-- OpenGraph Metadata for SEO & Social Sharing -->
+    <meta property="og:title" content="Free GST Calculator Online | Calculate CGST, SGST & IGST">
+    <meta property="og:description" content="Calculate GST Exclusive and Inclusive amounts instantly offline. CGST, SGST, and IGST tax splits for 5%, 12%, 18%, and 28% rate slabs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nikk797.com/tools/gst-calculator.html">
+
+    <!-- Schema.org JSON-LD Structured Data for Google Ranking -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "NIKK 797 GST Calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "description": "Calculate Goods and Services Tax (GST) online for free. Calculate GST Exclusive and Inclusive amounts with CGST, SGST, and IGST tax splits.",
+          "offers": { "@type": "Offer", "price": "0" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the formula for calculating GST Exclusive?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GST Amount = (Net Amount × GST Rate) / 100. Total Price = Net Amount + GST Amount."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the formula for calculating GST Inclusive?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Net Amount = Total Amount / (1 + (GST Rate / 100)). GST Amount = Total Amount - Net Amount."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between CGST, SGST, and IGST?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "CGST (Central GST) and SGST (State GST) apply to intra-state transactions within the same state (split 50/50). IGST (Integrated GST) applies to inter-state transactions between two different states."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the standard GST tax rate slabs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard GST rates in India are 0% (Essential Items), 5% (Household Items), 12% (Standard Goods & Services), 18% (Most Electronics & Services), and 28% (Luxury Goods & Automobiles)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this GST Calculator save my invoice data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The NIKK 797 GST Calculator processes all calculations 100% locally in your browser. No financial data is ever transmitted to a server."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <style>
+        .preset-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s var(--spring-easing);
+        }
+        .preset-btn:hover, .preset-btn.active {
+            background: var(--accent-primary);
+            color: #ffffff;
+            border-color: var(--accent-primary);
+            box-shadow: 0 2px 10px rgba(0, 113, 227, 0.3);
+        }
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+        .breakdown-row:last-child {
+            border-bottom: none;
+        }
+        .breakdown-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .breakdown-val {
+            color: var(--text-main);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">NIKK 797 Tools</a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section" style="margin-bottom: 0; text-align: center;">
+            <h1>Free GST Calculator Online</h1>
+            <p style="font-size: 1.15rem; max-width: 620px; margin: 0 auto 2rem auto; color: var(--text-muted);">
+                Calculate Goods & Services Tax instantly. Supports GST Exclusive (Add Tax), GST Inclusive (Remove Tax), and CGST/SGST/IGST tax splits.
+            </p>
+        </div>
+
+        <div class="calculator-container" style="max-width: 760px;">
+            <div class="form-group">
+                <label for="currency">Currency</label>
+                <select id="currency" class="form-control" style="cursor: pointer;">
+                    <option value="INR" selected>INR (₹) - Indian Rupee</option>
+                    <option value="USD">USD ($) - US Dollar</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="GBP">GBP (£) - British Pound</option>
+                    <option value="CAD">CAD (C$) - Canadian Dollar</option>
+                    <option value="AUD">AUD (A$) - Australian Dollar</option>
+                </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="gst-type">GST Calculation Mode</label>
+                    <select id="gst-type" class="form-control" style="cursor: pointer;">
+                        <option value="exclusive" selected>Add GST (Exclusive)</option>
+                        <option value="inclusive">Remove GST (Inclusive)</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="tax-type">Transaction Type</label>
+                    <select id="tax-type" class="form-control" style="cursor: pointer;">
+                        <option value="intra" selected>Intra-State (CGST + SGST)</option>
+                        <option value="inter">Inter-State (IGST)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" class="form-control" placeholder="e.g. 10000" min="0" step="any">
+            </div>
+
+            <div class="form-group">
+                <label for="gst-rate">GST Rate (%)</label>
+                <input type="number" id="gst-rate" class="form-control" placeholder="e.g. 18" value="18" min="0" max="100" step="any">
+                <div class="preset-container">
+                    <button class="preset-btn" data-rate="5">5%</button>
+                    <button class="preset-btn" data-rate="12">12%</button>
+                    <button class="preset-btn active" data-rate="18">18%</button>
+                    <button class="preset-btn" data-rate="28">28%</button>
+                </div>
+            </div>
+
+            <button id="calc-btn" class="btn">Calculate GST</button>
+
+            <div class="result-box" id="result-display">
+                <h4>Total Amount (Gross)</h4>
+                <div id="result-gross" class="result-value">-</div>
+
+                <div style="margin-top: 1.75rem; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Net Amount (Pre-Tax)</span>
+                        <span class="breakdown-val" id="result-net">-</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label">Total GST Tax</span>
+                        <span class="breakdown-val" id="result-gst" style="color: var(--accent-blue);">-</span>
+                    </div>
+                    
+                    <div id="cgst-sgst-block">
+                        <div class="breakdown-row" style="width: 100%;">
+                            <span class="breakdown-label">CGST (Central Tax 50%)</span>
+                            <span class="breakdown-val" id="result-cgst">-</span>
+                        </div>
+                        <div class="breakdown-row" style="width: 100%;">
+                            <span class="breakdown-label">SGST/UTGST (State Tax 50%)</span>
+                            <span class="breakdown-val" id="result-sgst">-</span>
+                        </div>
+                    </div>
+
+                    <div id="igst-block" style="display: none;">
+                        <div class="breakdown-row" style="width: 100%;">
+                            <span class="breakdown-label">IGST (Integrated Tax 100%)</span>
+                            <span class="breakdown-val" id="result-igst">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <article class="content-section">
+            <h2>What is a GST Calculator?</h2>
+            <p>Our <strong>GST Calculator</strong> is a free, high-speed utility designed for business owners, accountants, freelancers, and consumers. It allows you to compute the Goods & Services Tax (GST) for any purchase or invoice amount instantly. You can easily calculate GST Exclusive (adding tax to a base amount) or GST Inclusive (reversing GST out of a final price) along with exact CGST, SGST, and IGST tax splits.</p>
+
+            <h2>How to Calculate GST (Formulas)</h2>
+            <p>Depending on whether tax is added to or included in the price, use the formulas below:</p>
+
+            <h3>1. GST Exclusive Formula (Add GST)</h3>
+            <p>Use this formula when you know the net base price and want to add tax:</p>
+            <ul>
+                <li><strong>GST Amount</strong> = (Net Amount × GST Rate) ÷ 100</li>
+                <li><strong>Gross Total</strong> = Net Amount + GST Amount</li>
+            </ul>
+
+            <h3>2. GST Inclusive Formula (Remove GST)</h3>
+            <p>Use this formula when you know the final bill amount and need to extract the underlying net price and tax portion:</p>
+            <ul>
+                <li><strong>Net Amount</strong> = Total Amount ÷ (1 + (GST Rate ÷ 100))</li>
+                <li><strong>GST Amount</strong> = Total Amount - Net Amount</li>
+            </ul>
+
+            <h2>GST Tax Rate Slabs in India</h2>
+            <p>Under the Goods & Services Tax structure, items and services are categorized into standard tax rate slabs:</p>
+            <ul>
+                <li><strong>0% Slab:</strong> Exempt items such as fresh vegetables, unbranded food grains, milk, and basic necessities.</li>
+                <li><strong>5% Slab:</strong> Essential goods including packaged foods, tea, coffee, edible oil, and life-saving medicines.</li>
+                <li><strong>12% Slab:</strong> Standard consumer products such as computers, processed foods, mobile devices, and business travel.</li>
+                <li><strong>18% Slab:</strong> Most IT services, software, Telecom services, restaurants, financial services, and industrial capital goods.</li>
+                <li><strong>28% Slab:</strong> Luxury goods, automobiles, air conditioners, high-end electronics, and premium hospitality.</li>
+            </ul>
+
+            <h2>Understanding CGST, SGST, and IGST</h2>
+            <p>India's dual GST framework categorizes taxes based on transaction geography:</p>
+            <ul>
+                <li><strong>CGST (Central Goods and Services Tax):</strong> Collected by the Central Government on intra-state sales (within the same state). Represents 50% of the total GST rate.</li>
+                <li><strong>SGST (State Goods and Services Tax):</strong> Collected by the State Government on intra-state sales. Represents 50% of the total GST rate.</li>
+                <li><strong>IGST (Integrated Goods and Services Tax):</strong> Collected by the Central Government on inter-state sales (between two different states) and imported goods. Equal to 100% of the GST rate.</li>
+            </ul>
+
+            <div class="faq-container" style="margin-top: 4rem;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions (FAQ)</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is GST Exclusive vs GST Inclusive?</div>
+                    <div class="faq-answer">GST Exclusive means tax is added on top of the base product price. GST Inclusive means the total price already includes the tax amount.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How are CGST and SGST split on an invoice?</div>
+                    <div class="faq-answer">For intra-state sales (within the same state), the total GST is split equally (50% CGST and 50% SGST). For instance, an 18% GST rate breaks down to 9% CGST and 9% SGST.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">When should I select Inter-State (IGST)?</div>
+                    <div class="faq-answer">Select Inter-State (IGST) whenever goods or services are supplied from one state or union territory to another state.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is my invoice data uploaded to a server?</div>
+                    <div class="faq-answer">No. All calculations run strictly inside your device's browser memory. Your financial figures are never transmitted to external servers.</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Related Tools</h2>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="commission-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Commission Calculator</a>
+                    <a href="overtime-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Overtime Calculator</a>
+                    <a href="hourly-to-salary-calculator.html" class="btn btn-secondary" style="width: auto; padding: 0.65rem 1.4rem; font-size: 0.95rem;">Hourly to Salary</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; 2026 nikk797.com. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="../about.html">About</a>
+                <a href="../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/gst.js"></script>
+</body>
+
+</html>
